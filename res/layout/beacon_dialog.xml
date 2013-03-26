@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:padding="4dp"
+	android:background="#FFFFFF">
+	
+	<TextView 
+		android:id="@+id/beacon_dialog_lblLat"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="Lat: "
+		android:textSize="20dp"
+		android:textColor="@color/beaconDialogTextColor"/>
+			
+	<TextView 
+		android:id="@+id/beacon_dialog_valLat"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="20dp"
+		android:textColor="@color/beaconDialogTextColor"
+		android:layout_toRightOf="@id/beacon_dialog_lblLat"
+		android:layout_alignTop="@id/beacon_dialog_lblLat" />
+	
+	<TextView
+		android:id="@+id/beacon_dialog_lblCurrentGpsLat" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:textColor="@color/beaconDialogTextColor"
+		android:textSize="20dp"
+		android:paddingLeft="4dp"
+		android:layout_toRightOf="@id/beacon_dialog_valLat"
+		android:layout_alignTop="@id/beacon_dialog_valLat"/>
+	
+	<TextView
+		android:id="@+id/beacon_dialog_lblLon" 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="Lon: "
+		android:textSize="20dp"
+		android:textColor="@color/beaconDialogTextColor"
+		android:layout_below="@id/beacon_dialog_lblLat" />
+			
+	<TextView
+		android:id="@+id/beacon_dialog_valLon" 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:textSize="20dp"
+		android:textColor="@color/beaconDialogTextColor"
+		android:layout_toRightOf="@id/beacon_dialog_lblLon" android:layout_alignTop="@id/beacon_dialog_lblLon" />
+	
+	<TextView
+		android:id="@+id/beacon_dialog_lblCurrentGpsLon" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:textColor="@color/beaconDialogTextColor"
+		android:textSize="20dp"
+		android:paddingLeft="4dp"
+		android:layout_toRightOf="@id/beacon_dialog_valLon"
+		android:layout_alignTop="@id/beacon_dialog_valLon"/>	
+	<pt.up.fe.dceg.accu.components.Finder android:id="@+id/beacon_dialog_find" android:layout_width="wrap_content"
+		android:scaleType="center" 
+		android:layout_height="wrap_content" 
+		android:layout_alignTop="@id/beacon_dialog_lblCurrentGpsLat"
+		android:layout_toRightOf="@id/beacon_dialog_lblCurrentGpsLat"
+		android:paddingLeft="5dp"/>
+
+	<TextView
+		android:id="@+id/beacon_dialog_lblDist" 
+		android:layout_width="wrap_content" 
+		android:layout_below="@id/beacon_dialog_find"
+		android:layout_alignLeft="@id/beacon_dialog_find"
+		android:textSize="15dp" 
+		android:textColor="@color/beaconDialogTextColor"
+		android:layout_height="wrap_content"/>
+		
+	<TextView
+		android:id="@+id/beacon_dialog_lblDepth" 
+		android:layout_width="wrap_content"
+		android:text="Depth: " 
+		android:layout_below="@id/beacon_dialog_lblLon"
+		android:textSize="20dp" 
+		android:textColor="@color/beaconDialogTextColor"
+		android:layout_height="wrap_content"/>
+	
+	<EditText 
+		android:id="@+id/beacon_dialog_valDepth"
+		android:tag="depth"
+		android:inputType="numberDecimal" 
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_below="@id/beacon_dialog_lblDepth" android:minWidth="20dp"/>
+		
+	<Button android:id="@+id/beacon_dialog_btnOk" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="Ok"
+		android:layout_below="@id/beacon_dialog_find"/>
+		
+	<Button android:id="@+id/beacon_dialog_btnSet" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:text="Change GPS Coords"
+		android:layout_toRightOf="@id/beacon_dialog_btnOk"
+		android:layout_alignTop="@id/beacon_dialog_btnOk"/>		
+</RelativeLayout>

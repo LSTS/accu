@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:padding="2dip"
+android:weightSum="100"
+android:id="@+id/syslist_ll"
+android:background="@drawable/syslist_item_shape"
+>
+	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:id="@+id/syslist_name"
+	android:textColor="#000000"
+
+	>
+	</TextView>
+	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:id="@+id/syslist_info"
+	android:textColor="#000000">
+	</TextView>
+</LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical">
+	<TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:background="#000000"
+		android:textColor="#FFFFFF"
+		android:textSize="25dp"
+		android:text="Beacon Configurator"/>
+	<ListView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:tag="listBeacon" android:layout_weight="1.0"
+		android:clickable="true"/>
+	<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="No data"
+		android:tag="empty"/>
+	<Button android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:tag="btnSend" android:text="Send Beacon Information"/>
+</LinearLayout>

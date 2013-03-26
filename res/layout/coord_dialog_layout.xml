@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:padding="4dp"
+	android:background="#FFFFFF">
+	
+	<TextView
+		android:id="@+id/lblLat" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:textColor="@color/beaconDialogTextColor"
+		android:textSize="20dp"
+		android:text="Latitude:"/>
+		
+	<EditText
+		android:id="@+id/valLat"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:inputType="numberSigned|numberDecimal"
+		android:minWidth="30dp"
+		android:textSize="20dp"
+		android:textColor="@color/beaconDialogTextColor"
+		android:text="0.0"/>
+	
+	<TextView
+		android:id="@+id/lblLon" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:textColor="@color/beaconDialogTextColor"
+		android:textSize="20dp"
+		android:text="Longitude:"/>
+		
+	<EditText
+		android:id="@+id/valLon"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:inputType="numberSigned|numberDecimal"
+		android:textSize="20dp"
+		android:minWidth="30dp"
+		android:textColor="@color/beaconDialogTextColor"
+		android:text="0.0"/>		
+
+	<Button android:id="@+id/btnOk" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="Ok"/>
+		
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical">
+  <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+  	<TableRow android:layout_marginBottom="4dp">
+  		<TextView android:tag="id" android:textSize="20dp"/>
+  	</TableRow>
+  	<TableRow>	
+  		<TextView android:text="Lat: " android:paddingRight="4dp" android:textSize="20dp"/>
+  		<TextView android:tag="lat" android:paddingRight="10dp" android:textSize="20dp"/>
+  		<TextView android:text="Lon: " android:paddingRight="4dp" android:textSize="20dp"/>
+  		<TextView android:tag="lon" android:paddingRight="10dp" android:textSize="20dp"/>
+ 		<TextView android:text="Depth: " android:textSize="20dp"/>
+ 		<TextView android:tag="depth" android:textSize="20dp"/> 		 
+  	</TableRow>
+  </TableLayout>
+</LinearLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<pt.up.fe.dceg.accu.types.android.TouchViewFlipper
+    android:layout_margin="6dip"
+    android:id="@+id/layoutswitcher"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    	<pt.up.fe.dceg.accu.components.SystemListView
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:id="@+id/sys_list">
+    	</pt.up.fe.dceg.accu.components.SystemListView>
+    	
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+		<pt.up.fe.dceg.accu.components.EntityStateList
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:id="@+id/entity_list">
+    	</pt.up.fe.dceg.accu.components.EntityStateList>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+		<pt.up.fe.dceg.accu.components.StateView
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:id="@+id/stateview">
+    	</pt.up.fe.dceg.accu.components.StateView>
+    </LinearLayout>
+</pt.up.fe.dceg.accu.types.android.TouchViewFlipper>
+</RelativeLayout>
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="horizontal"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:padding="2dip"
+android:weightSum="100"
+>
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="5dip"
+    android:layout_weight="50">
+
+
+	</LinearLayout>
+    
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="5dip"
+    android:layout_weight="50">
+       <LinearLayout
+    	android:orientation="horizontal"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:padding="5dip">
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+    				android:id="@+id/button01" android:text="Map"></Button>
+    	    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+    				android:id="@+id/button02" android:text="Tele"></Button>
+    		<Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+    				android:id="@+id/button03" android:text="Finder"></Button>
+    </LinearLayout>
+
+    <pt.up.fe.dceg.accu.components.EntityStateList
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/entity_list">
+    </pt.up.fe.dceg.accu.components.EntityStateList>
+    </LinearLayout>
+
+</LinearLayout>
+-->

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Finder" android:id="@+id/menu_finder" android:titleCondensed="Finder"></item>
+    <item android:title="Map" android:id="@+id/menu_map" android:titleCondensed="Map"></item>
+    <item android:id="@+id/menu_teleop" android:titleCondensed="TeleOp" android:title="TeleOp"></item>
+    <item android:title="State" android:id="@+id/menu_state" android:titleCondensed="State"></item>
+    <item android:id="@+id/menu_beacon" android:titleCondensed="Beacon" android:title="Beacon"></item>
+</menu>

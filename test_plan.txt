@@ -1,0 +1,19 @@
+
+Verificar a existência de todas os sistemas presentes (veículos e consolas) e a coêrencia da informação 
+(SystemList panel -> 1o botão)
+
+Verificar durante operação do veículo os dados apresentados na EntityList e no StatePanel comparando com dados
+apresentados pelo Neptus
+(2o e 3o painel)
+
+Depois de um plano carregado no veículo testar a funções de start/stop/abort no PlanStatePanel
+(4o Painel)
+
+*Mapas para já não testar*
+
+Testar tele-operação e confirmar as informações de Rpm e Speed recebidas do veículo.
+
+
+
+
+

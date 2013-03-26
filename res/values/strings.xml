@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ACCU</string>
+    <color name="backgroundcolor">#D7F0F0</color>
+    <color name="beaconDialogTextColor">#000000</color>
+</resources>
