@@ -89,7 +89,10 @@ public class Main extends MapActivity
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		outState.putString("sys", Accu.getInstance().getActiveSys().getName());
+		
+		if(Accu.getInstance().getActiveSys() != null) {
+			outState.putString("sys", Accu.getInstance().getActiveSys().getName());
+		}
 	}
     
     @Override

@@ -156,8 +156,8 @@ public class ConsoleConfig
 	
 	public boolean readConfiguration()
 	{  
-		SAXReader reader = new SAXReader();
 		try {
+			SAXReader reader = new SAXReader();
 			doc = reader.read(is);
 			
 		} catch (DocumentException e) {
