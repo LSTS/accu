@@ -1,0 +1,205 @@
+Signature-Version: 1.0
+Created-By: 1.0 (Android)
+SHA1-Digest-Manifest: 8cJmAiNcYb7X+y2qEvUkpK5wu0I=
+
+Name: res/layout/panel_selector_layout.xml
+SHA1-Digest: rajhLM3euSufKfanJyKWqN25c/I=
+
+Name: res/layout/beacon_config_layout.xml
+SHA1-Digest: 9Kuzm0mVVO9gO3Tg8wBQKjnuYH0=
+
+Name: res/drawable-hdpi/teleop_icon_1.png
+SHA1-Digest: DBy+Z5U26dcsr82vzSvYkYnYcCU=
+
+Name: res/xml/preferences.xml
+SHA1-Digest: 0MplUG47/cpsmJuN1UiGOKZ0iWM=
+
+Name: res/drawable-hdpi/preferences_icon_1.png
+SHA1-Digest: BHSbmXnpETvG3K9paeAwMHWU+rc=
+
+Name: res/drawable-hdpi/marker1.png
+SHA1-Digest: 8j/GwOZlpuhTMLlEJTStXYAx564=
+
+Name: res/layout/command_pad_layout.xml
+SHA1-Digest: 8ninz4ZS/7hf9BvLre+WU4TDFKU=
+
+Name: msgdefs/IMC-4.7.0.xml
+SHA1-Digest: dvADNOGZ1hk1ZsQZBWOIk/xj5Mc=
+
+Name: res/drawable-ldpi/icon.png
+SHA1-Digest: edTgaEpan6eMh2h2aoFSu4LrO6s=
+
+Name: res/layout/command_pad_sensor.xml
+SHA1-Digest: 0VNxuI448DmC0EcwIUh4t7tfmVA=
+
+Name: res/drawable-hdpi/androidmarker.png
+SHA1-Digest: 5vU7CEsZWw1qDK1gMEIhvDRCsfU=
+
+Name: msgdefs/IMC_Addresses.xml
+SHA1-Digest: 6sSxfzviJHJpoII+R2XMggpx6rM=
+
+Name: res/drawable-mdpi/icon.png
+SHA1-Digest: 0dYtBdU47pCgShIGPLVtSNzrEb8=
+
+Name: res/drawable-hdpi/finder_icon_1.png
+SHA1-Digest: IS64KqgBm1S0CCr25dpNIumvY20=
+
+Name: res/layout/panel_selector_item.xml
+SHA1-Digest: V5bxftU9Njgj49twNifnagI53p8=
+
+Name: res/layout/ttstest_layout.xml
+SHA1-Digest: 307WBWXJTkWzw3acN6FlJGwJjRQ=
+
+Name: res/raw/config.xml
+SHA1-Digest: bO+/8ztHnbNHf822080NWf0q8HY=
+
+Name: res/layout/stateview_panel_layout.xml
+SHA1-Digest: j8+jk9GhoRK4HIuZ9aYpclEOTH0=
+
+Name: res/drawable-hdpi/syslist_item_shape.xml
+SHA1-Digest: fjq03JmP2er5+SDhNmnYvxbnFro=
+
+Name: msgdefs/IMC-5.0.0.xml
+SHA1-Digest: QoR4g8l2qS7v6l+PDubRpmi1Yh4=
+
+Name: res/drawable-hdpi/entitylist_icon_1.png
+SHA1-Digest: e8HWSdcD6rBmCcU82m8sZAB1imQ=
+
+Name: res/drawable-hdpi/map_icon_1.png
+SHA1-Digest: blIqh9NKUtS9SwxyZ9Q691WPqjw=
+
+Name: res/layout/teleoperation_sensor_layout.xml
+SHA1-Digest: cqS8ZmuFCmHG8JSLww2Sv+Yv7CQ=
+
+Name: res/layout/map.xml
+SHA1-Digest: 3fRnaFOoClLPi5ZECKgr3NY2MhY=
+
+Name: res/drawable-hdpi/exit.png
+SHA1-Digest: Z3Sl+6PJQda1e4kp/I+YFhku1dE=
+
+Name: res/layout/main.xml
+SHA1-Digest: uyDyuxep7V6lk+6Rv33ALmHWRwU=
+
+Name: msgdefs/IMC.xml
+SHA1-Digest: s3ZxxnsLvOW170rFEYzFVXLaS4I=
+
+Name: res/layout/container_layout.xml
+SHA1-Digest: 2iGEXMhJoWsTJKSlMRYM4QHwQf8=
+
+Name: res/layout/test_layout.xml
+SHA1-Digest: gLUR4a/q5KYu1mpShssHf+52x3k=
+
+Name: res/layout/copyofconsole_configurator_layout.xml
+SHA1-Digest: g2FGIKB+oLkzCAJRl7UtQ9pRUUA=
+
+Name: res/layout/finder_panel_layout.xml
+SHA1-Digest: 1QNlbmOuGhI2hkEeRd14XqXPKOc=
+
+Name: res/layout/systemlist_layout.xml
+SHA1-Digest: PWTAVhxhpQ5KJVoAgP2+bEJCUbM=
+
+Name: res/layout/coord_dialog_layout.xml
+SHA1-Digest: RLRBT3bBiBo85UFmCGkLJAvWxbI=
+
+Name: res/layout/console_configurator_layout.xml
+SHA1-Digest: 84nLuOAscAXAEhmhGkgQIwsjhwI=
+
+Name: assets/config.xml
+SHA1-Digest: X3sxfLNimRFamFVOEDPwOjRc7f0=
+
+Name: res/drawable-hdpi/compass1.png
+SHA1-Digest: ey1OfNsgdNHks2nT3stKcMVVx0M=
+
+Name: images/imc.png
+SHA1-Digest: 0MMPDSr68IH/AHjheMw4eZYdZHA=
+
+Name: res/layout/about_layout.xml
+SHA1-Digest: vugl/5j8EiP6t8HfgAFgK/eyQw0=
+
+Name: res/drawable-hdpi/lbl_icon_1.png
+SHA1-Digest: L0SWREBcaY3k41FrVtuOllpNnI4=
+
+Name: res/drawable-hdpi/planstate_icon_1.png
+SHA1-Digest: pwSdIi8cm4OjD7nQNWzHUsW6oQw=
+
+Name: git.info.txt
+SHA1-Digest: Rgb8/gYMogBECZYvbfb3fBToS88=
+
+Name: resources.arsc
+SHA1-Digest: N5SNg318SSpJwGE2s8ubk92CHy0=
+
+Name: res/menu/main_menu.xml
+SHA1-Digest: 1oqvZzzM4KkkuEQXTs4v6bexehI=
+
+Name: res/layout/command_pad_double.xml
+SHA1-Digest: Rk0DCdTKSIsGFNirg7kQ50BGw/Q=
+
+Name: res/layout/teleoperation_layout_2.xml
+SHA1-Digest: UY6hPwh2uMNr5QcMR24etbx3+tc=
+
+Name: AndroidManifest.xml
+SHA1-Digest: SWQBqGE48+xfQ8tYy4owzfycIlo=
+
+Name: res/layout/beacon_list_item.xml
+SHA1-Digest: Nkr6q8EjkAd1bzF/4kZgimwRT/A=
+
+Name: COPYRIGHT.TXT
+SHA1-Digest: 9KAMBQrIOUlqoyKDjKWHsWvv8yA=
+
+Name: res/layout/beacon_dialog.xml
+SHA1-Digest: EjEPUE/40qLBxaqLw4xkm546O4I=
+
+Name: res/layout/finder_layout.xml
+SHA1-Digest: GS7plRR4x4S0dJp2HHO/f8GLaQI=
+
+Name: res/layout/pad_layout_test.xml
+SHA1-Digest: bZuZP5MQ3CRNhI/cH3BzFAs9F5I=
+
+Name: msgdefs/IMC-3.0.0.xml
+SHA1-Digest: QrwyQHEuJbMu8e8oqDxrXrWkTtk=
+
+Name: res/layout/teleoperation_layout_1.xml
+SHA1-Digest: /IqVXF/1b01leGIoaacgRxJb6c4=
+
+Name: res/layout/main2.xml
+SHA1-Digest: 9S/4EYvyuoWHe1uD9dWN8EoxArU=
+
+Name: res/layout/syslist_item_layout.xml
+SHA1-Digest: VdoxHXUQkZUBU3HXqbgyN5BFIJY=
+
+Name: res/layout/entitystate_item_layout.xml
+SHA1-Digest: yNVXqpM24IO4c4B1DKgWyuR2cNs=
+
+Name: classes.dex
+SHA1-Digest: 34sMUc0Uz3S6xnLWxaSJwPPxSZ8=
+
+Name: res/drawable-hdpi/compass2.png
+SHA1-Digest: l8XxqLHmqK21+5ZGYU2tQ51oeQs=
+
+Name: res/raw/imc.xml
+SHA1-Digest: TDbADkVYKbL6HdiKdZkzH19rKt4=
+
+Name: res/layout/planstate_layout.xml
+SHA1-Digest: Iy5KNgFpNLdmEFdePUzqLwkxA0E=
+
+Name: res/drawable-hdpi/stateview_icon_1.png
+SHA1-Digest: 2kPpE4puhQSC7y1EEJ5xjTlQUlo=
+
+Name: res/drawable-hdpi/systemlist_icon_1.png
+SHA1-Digest: qK9/Pdd96CoC+vsBaFbBCJVvxeM=
+
+Name: res/layout/dragitem.xml
+SHA1-Digest: aHoOMQkX6se8Klp6f4PhVA7snKo=
+
+Name: res/drawable-hdpi/icon.png
+SHA1-Digest: rnSMff+/nMD1Aqb2tGhzmvCIRqs=
+
+Name: assets/plugin.list
+SHA1-Digest: 1KYTcEPTzJzvYG/S5Xt0Q9L8Isg=
+
+Name: res/layout/stateview_layout.xml
+SHA1-Digest: 93/Yc/y33Tl7eHi+gYgLWbIToNA=
+
+Name: res/layout/command_pad_sensor_layout.xml
+SHA1-Digest: a0zUiYoh7VpPkr96GGuq+7zRpqM=
+
