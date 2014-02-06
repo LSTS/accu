@@ -5,30 +5,30 @@
   android:layout_height="wrap_content"
   android:orientation="vertical"
   android:gravity="right">
-  	  <pt.up.fe.dceg.accu.components.controlpad.SensorPad
+  	  <pt.lsts.accu.components.controlpad.SensorPad
   	      android:layout_width="wrap_content" 
   	  	  android:layout_height="wrap_content" 
   	      axis="y" positive="false" axisXaction="Heading"/>
-  	  <pt.up.fe.dceg.accu.components.controlpad.PadButton 
+  	  <pt.lsts.accu.components.controlpad.PadButton 
   	  	android:text="Accelerate" action="Accelerate"
   	  	android:layout_width="wrap_content" 
   	  	android:layout_height="wrap_content" 
   	  	android:tag="btn2"
   	  	android:layout_gravity="right"/>
   	  	
-  	  <pt.up.fe.dceg.accu.components.controlpad.PadButton 
+  	  <pt.lsts.accu.components.controlpad.PadButton 
   	 	android:text="Decelerate" android:tag="btn3" 
   	  	action="Decelerate"
   	  	android:layout_width="wrap_content" 
   	  	android:layout_height="wrap_content"/>
   	 
-  	 <pt.up.fe.dceg.accu.components.controlpad.PadButton 
+  	 <pt.lsts.accu.components.controlpad.PadButton 
   	 	android:text="Stop" android:tag="btn3" 
   	  	action="Stop"
   	  	android:layout_width="wrap_content" 
   	  	android:layout_height="wrap_content"/>
   	  	
-	  <pt.up.fe.dceg.accu.components.controlpad.TeleOpToggle 
+	  <pt.lsts.accu.components.controlpad.TeleOpToggle 
   	  	android:layout_width="wrap_content" 
   	  	android:layout_height="wrap_content" 
   	  	android:tag="btn1" 

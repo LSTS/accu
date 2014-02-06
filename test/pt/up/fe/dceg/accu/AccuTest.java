@@ -1,6 +1,7 @@
 package pt.up.fe.dceg.accu;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -8,7 +9,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import pt.up.fe.dceg.accu.state.Accu;
+import pt.lsts.accu.state.Accu;
 
 public class AccuTest {
 

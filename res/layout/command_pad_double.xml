@@ -6,28 +6,28 @@
   android:orientation="horizontal"
   android:gravity="right">
   
-	<pt.up.fe.dceg.accu.components.controlpad.JoystickPad
+	<pt.lsts.accu.components.controlpad.JoystickPad
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:id="@+id/joystickPad01"
 	android:tag="joy1"
 	axisYaction="Thrust"
 	>
-	</pt.up.fe.dceg.accu.components.controlpad.JoystickPad>
+	</pt.lsts.accu.components.controlpad.JoystickPad>
   	  	
 	<LinearLayout
 	android:layout_width="fill_parent"
   	android:layout_height="wrap_content"
   	android:orientation="vertical"
   	android:gravity="right">
-	<pt.up.fe.dceg.accu.components.controlpad.JoystickPad
+	<pt.lsts.accu.components.controlpad.JoystickPad
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:id="@+id/joystickPad02"
 	android:tag="joy2"
 	axisXaction="Heading">
-	</pt.up.fe.dceg.accu.components.controlpad.JoystickPad>
-	<pt.up.fe.dceg.accu.components.controlpad.TeleOpToggle 
+	</pt.lsts.accu.components.controlpad.JoystickPad>
+	<pt.lsts.accu.components.controlpad.TeleOpToggle 
   	  	android:layout_width="wrap_content" 
   	  	android:layout_height="wrap_content" 
   	  	android:tag="btn1" 

@@ -3,9 +3,9 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
-    <pt.up.fe.dceg.accu.components.SystemListView
+    <pt.lsts.accu.components.SystemListView
    		android:layout_width="fill_parent"
    		android:layout_height="wrap_content"
    		android:id="@+id/sys_list">
-    </pt.up.fe.dceg.accu.components.SystemListView>
+    </pt.lsts.accu.components.SystemListView>
 </LinearLayout>

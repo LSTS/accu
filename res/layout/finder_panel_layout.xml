@@ -9,12 +9,12 @@
 		android:id="@+id/finder_info"
 		android:textSize="18dp"/>
 	
-	<pt.up.fe.dceg.accu.components.Finder
+	<pt.lsts.accu.components.Finder
   		android:layout_width="fill_parent"
   		android:layout_height="fill_parent"
   		android:layout_weight="1"
   		android:id="@+id/ll_finder">	
-	</pt.up.fe.dceg.accu.components.Finder>
+	</pt.lsts.accu.components.Finder>
 	<TextView android:layout_width="wrap_content" 
   			android:textColor="#000000" 
   			android:textSize="25dp"

@@ -56,7 +56,7 @@
 		android:paddingLeft="4dp"
 		android:layout_toRightOf="@id/beacon_dialog_valLon"
 		android:layout_alignTop="@id/beacon_dialog_valLon"/>	
-	<pt.up.fe.dceg.accu.components.Finder android:id="@+id/beacon_dialog_find" android:layout_width="wrap_content"
+	<pt.lsts.accu.components.Finder android:id="@+id/beacon_dialog_find" android:layout_width="wrap_content"
 		android:scaleType="center" 
 		android:layout_height="wrap_content" 
 		android:layout_alignTop="@id/beacon_dialog_lblCurrentGpsLat"

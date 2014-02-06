@@ -1,11 +1,11 @@
 package pt.up.fe.dceg.accu;
 
 import junit.framework.TestCase;
-import pt.up.fe.dceg.accu.msg.IMCUtils;
-import pt.up.fe.dceg.accu.state.Accu;
-import pt.up.fe.dceg.accu.state.SystemList;
-import pt.up.fe.dceg.neptus.imc.IMCDefinition;
-import pt.up.fe.dceg.neptus.imc.IMCMessage;
+import pt.lsts.accu.msg.IMCUtils;
+import pt.lsts.accu.state.Accu;
+import pt.lsts.accu.state.SystemList;
+import pt.lsts.imc.IMCDefinition;
+import pt.lsts.imc.IMCMessage;
 
 public class Testing extends TestCase {
 

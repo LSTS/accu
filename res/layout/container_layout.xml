@@ -7,8 +7,8 @@
 >
   <FrameLayout android:id="@+id/frame" android:layout_width="fill_parent" android:layout_height="fill_parent">
   </FrameLayout>
-   <pt.up.fe.dceg.accu.panel.ActionSelector 
+   <pt.lsts.accu.panel.ActionSelector 
    android:id="@+id/selector" android:layout_width="wrap_content" android:layout_height="fill_parent"
    android:gravity="left">
-   </pt.up.fe.dceg.accu.panel.ActionSelector>
+   </pt.lsts.accu.panel.ActionSelector>
 </FrameLayout>

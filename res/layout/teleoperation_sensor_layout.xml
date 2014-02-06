@@ -4,10 +4,10 @@
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
   android:orientation="horizontal">
-	<pt.up.fe.dceg.accu.components.controlpad.ControlPad2
+	<pt.lsts.accu.components.controlpad.ControlPad2
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:id="@+id/pad"
 	pad_layout="@layout/command_pad_sensor_layout">
-	</pt.up.fe.dceg.accu.components.controlpad.ControlPad2>
+	</pt.lsts.accu.components.controlpad.ControlPad2>
 </LinearLayout>

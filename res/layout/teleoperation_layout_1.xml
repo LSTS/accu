@@ -4,9 +4,9 @@
   android:layout_width="wrap_content"
   android:layout_height="fill_parent"
   android:orientation="horizontal">
-	<pt.up.fe.dceg.accu.components.controlpad.ControlPad
+	<pt.lsts.accu.components.controlpad.ControlPad
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:id="@+id/pad">
-	</pt.up.fe.dceg.accu.components.controlpad.ControlPad>
+	</pt.lsts.accu.components.controlpad.ControlPad>
 </LinearLayout>
