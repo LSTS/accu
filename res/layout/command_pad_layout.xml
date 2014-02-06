@@ -27,7 +27,7 @@
   	  </TextView>
   	  <pt.lsts.accu.components.controlpad.PadTextField 
   	  	android:layout_width="wrap_content" android:layout_height="wrap_content"
-  	  	android:layout_marginBottom="3dp" android:textSize="20dp" message="Rpm" field="value" units="Rpm"> 		    
+  	  	android:layout_marginBottom="3dp" android:textSize="20dp" message="Rpm" field="value" units=""> 		    
  	  </pt.lsts.accu.components.controlpad.PadTextField>
   	</LinearLayout>
 	
