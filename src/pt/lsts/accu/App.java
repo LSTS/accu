@@ -2,7 +2,6 @@ package pt.lsts.accu;
 
 import pt.lsts.accu.state.Accu;
 import pt.lsts.imc.IMCDefinition;
-import pt.up.fe.dceg.accu.R;
 import android.app.Application;
 
 /**
@@ -18,7 +17,7 @@ public class App extends Application
 	{
 		super.onCreate();
 
-		IMCDefinition.getInstance(getResources().openRawResource(R.raw.imc));
+		IMCDefinition.getInstance();
 
 		// Sequence of calls needed to properly initialize ACCU
 		Accu.getInstance(this);
