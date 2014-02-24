@@ -29,6 +29,7 @@ public class Accu {
 	private static IMCManager imcManager;
 	public SystemList mSysList;
 	public static Announcer mAnnouncer;
+	public static AccuSmsHandler mSmsHandler;
 	public static GPSManager mGpsManager;
 	public static HeartbeatVibrator mHBVibrator;
 	public static Heart mHeart;
@@ -62,6 +63,7 @@ public class Accu {
 		mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 		mMainSysChangeListeners=new ArrayList<MainSysChangeListener>();
 		mAnnouncer = new Announcer(imcManager,broadcastAddress,"224.0.75.69");
+		mSmsHandler = new AccuSmsHandler(imcManager);
 		mHBVibrator = new HeartbeatVibrator(mContext, imcManager);
 		callOut = new CallOut(mContext);
 	}
@@ -93,6 +95,7 @@ public class Accu {
 			mAnnouncer.stop();
 			mSysList.stop();
 			mHeart.stop();
+			mSmsHandler.stop();
 			started = false;
 		}
 		else

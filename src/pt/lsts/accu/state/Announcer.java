@@ -88,7 +88,7 @@ public class Announcer
 		double height = currentLocation.getAltitude();
 		
 		int owner = 0xFFFF;
-		String services = "imc+udp://"+MUtil.getLocalIpAddress()+":6001/;"; //FIXME
+		String services = "imc+udp://"+MUtil.getLocalIpAddress()+":6001/;imc+udp://"+MUtil.getLocalIpAddress()+":6001/sms"; //FIXME
 		try {
 			announce = IMCDefinition.getInstance().create("Announce", 
 					"sys_name",sysName,
