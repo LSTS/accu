@@ -190,7 +190,9 @@ public class IMCManager implements MessageListener<MessageInfo, IMCMessage>
 		if (!commActive) {
 			Log.i("IMCManager", "Starting Comms");
 			announceListener = new UDPTransport("224.0.75.69", 30100);
+			announceListener.setImcId(localId);
 			comm = new UDPTransport(6001, 1);
+			comm.setImcId(localId);
 			announceListener.addMessageListener(this);
 			comm.addMessageListener(this);
 

@@ -63,7 +63,7 @@ public class Accu {
 		mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 		mMainSysChangeListeners=new ArrayList<MainSysChangeListener>();
 		mAnnouncer = new Announcer(imcManager,broadcastAddress,"224.0.75.69");
-		mSmsHandler = new AccuSmsHandler(imcManager);
+		mSmsHandler = new AccuSmsHandler(mContext, imcManager);
 		mHBVibrator = new HeartbeatVibrator(mContext, imcManager);
 		callOut = new CallOut(mContext);
 	}
