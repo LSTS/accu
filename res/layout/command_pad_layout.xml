@@ -1,56 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content"
-  android:orientation="vertical">
-  	<LinearLayout
-	  android:layout_width="wrap_content"
-  	  android:layout_height="wrap_content"
-  	  android:orientation="horizontal"
-  	  >
-	<pt.lsts.accu.components.controlpad.JoystickPad
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:id="@+id/joystickPad01"
-	android:tag="joy1"
-	axisXaction="Heading">
-	</pt.lsts.accu.components.controlpad.JoystickPad>
-	
-	<LinearLayout
-	  android:layout_width="120dp"
-  	  android:layout_height="fill_parent"
-  	  android:orientation="vertical"
-  	  android:padding="10dp">
-	  <TextView android:layout_height="wrap_content" android:layout_width="wrap_content"
-  	  	android:tag="speed" android:textSize="20dp">
-  	  </TextView>
-  	  <pt.lsts.accu.components.controlpad.PadTextField 
-  	  	android:layout_width="wrap_content" android:layout_height="wrap_content"
-  	  	android:layout_marginBottom="3dp" android:textSize="20dp" message="Rpm" field="value" units=""> 		    
- 	  </pt.lsts.accu.components.controlpad.PadTextField>
-  	</LinearLayout>
-	
-	<LinearLayout
-	  android:layout_width="wrap_content"
-  	  android:layout_height="fill_parent"
-  	  android:orientation="vertical"
-  	  android:padding="10dp">
-  	  <pt.lsts.accu.components.controlpad.PadButton android:text="Accelerate" action="Accelerate"
-  	  	android:layout_width="wrap_content" android:layout_height="wrap_content" android:tag="btn2"
-  	  	android:layout_marginBottom="3dp"/>
-  	  <pt.lsts.accu.components.controlpad.PadButton android:text="Decelerate" android:tag="btn3" action="Decelerate"
-  	  	android:layout_width="wrap_content" android:layout_height="wrap_content"
-  	  	android:layout_marginBottom="3dp"/>
-  	  <pt.lsts.accu.components.controlpad.PadButton android:text="Stop" android:tag="btn4" action="Stop"
-  	  	android:layout_width="wrap_content" android:layout_height="wrap_content"
-  	  	android:layout_marginBottom="25dp"/>
-  	  <pt.lsts.accu.components.controlpad.TeleOpToggle
-  	  	android:layout_width="wrap_content" android:layout_height="wrap_content" android:tag="btn1"/>
-  	</LinearLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
 
-  	</LinearLayout>
-   	<TextView android:layout_height="wrap_content" android:layout_width="fill_parent"
-  	  	android:tag="opmode" android:textSize="20dp" android:gravity="center_horizontal" android:paddingTop="20dp">
-  	</TextView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <pt.lsts.accu.components.controlpad.JoystickPad
+            android:id="@+id/joystickPad01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            axisXaction="Heading"
+            android:tag="joy1" >
+        </pt.lsts.accu.components.controlpad.JoystickPad>
+
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="speed"
+                android:textSize="20dp" >
+            </TextView>
+
+            <pt.lsts.accu.components.controlpad.PadTextField
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                field="value"
+                message="Rpm"
+                units=""
+                android:textSize="20dp" >
+            </pt.lsts.accu.components.controlpad.PadTextField>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <pt.lsts.accu.components.controlpad.PadButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                action="Accelerate"
+                android:tag="btn2"
+                android:text="@string/control_accelerate" />
+
+            <pt.lsts.accu.components.controlpad.PadButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                action="Decelerate"
+                android:tag="btn3"
+                android:text="@string/control_decelerate" />
+
+            <pt.lsts.accu.components.controlpad.PadButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                action="Stop"
+                android:tag="btn4"
+                android:text="@string/control_stop" />
+
+            <pt.lsts.accu.components.controlpad.TeleOpToggle
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="btn1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingTop="20dp"
+        android:tag="opmode"
+        android:textSize="20dp" >
+    </TextView>
+
 </LinearLayout>
