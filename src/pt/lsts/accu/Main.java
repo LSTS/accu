@@ -40,7 +40,7 @@ public class Main extends MapActivity
     @Override
 	public void onCreate(Bundle savedInstanceState) 
     {
-    	Log.i(TAG, Main.class.getSimpleName() + "onCreate");
+    	Log.i(TAG, Main.class.getSimpleName() + ": onCreate");
     	
         String s = Accu.getInstance().getPrefs().getString("colorMode", "1");
 		if(s.equals("1"))
@@ -84,7 +84,7 @@ public class Main extends MapActivity
     public void onStart()
     {
     	super.onStart();
-    	Log.i(TAG, Main.class.getSimpleName() + "onStart");
+    	Log.i(TAG, Main.class.getSimpleName() + ": onStart");
     	if(!Accu.getInstance().isStarted())
     		Accu.getInstance().start();
     	container.startPanelWithId(container.currentPanelId);
@@ -95,7 +95,7 @@ public class Main extends MapActivity
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-    	Log.i(TAG, Main.class.getSimpleName() + "onSaveInstance");
+    	Log.i(TAG, Main.class.getSimpleName() + ": onSaveInstance");
 		if(Accu.getInstance().getActiveSys() != null) {
 			outState.putString("sys", Accu.getInstance().getActiveSys().getName());
 		}
@@ -113,7 +113,7 @@ public class Main extends MapActivity
     	super.onPause();
     	// Panel must be stopped before Accu instance because of pausing/stopping messages
     	// like TeleOperationDone on TeleOp Panel
-    	Log.i(TAG, Main.class.getSimpleName() + "onPause");
+    	Log.i(TAG, Main.class.getSimpleName() + ": onPause");
     	container.stopCurrentPanel();
     	Accu.getInstance().pause();
     	if(wl.isHeld())
@@ -122,19 +122,19 @@ public class Main extends MapActivity
 
 	@Override
 	protected boolean isRouteDisplayed() {
-    	Log.i(TAG, Main.class.getSimpleName() + "isRouteDisplayed = false");
+    	Log.i(TAG, Main.class.getSimpleName() + ": isRouteDisplayed = false");
 		return false;
 	}
 	
 	public ConsoleConfig getConsoleConfig()
 	{
-    	Log.i(TAG, Main.class.getSimpleName() + "getConsoleConfig");
+    	Log.i(TAG, Main.class.getSimpleName() + ": getConsoleConfig");
 		return config;
 	}
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) 
 	{
-    	Log.i(TAG, Main.class.getSimpleName() + "onKeyDown");
+    	Log.i(TAG, Main.class.getSimpleName() + ": onKeyDown");
 		if(event.getAction() == KeyEvent.ACTION_DOWN)
 		{
 			if(event.getKeyCode()==KeyEvent.KEYCODE_BACK)
@@ -151,7 +151,7 @@ public class Main extends MapActivity
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu)
 	{
-    	Log.i(TAG, Main.class.getSimpleName() + "onPrepareOptionsMenu");
+    	Log.i(TAG, Main.class.getSimpleName() + ": onPrepareOptionsMenu");
 		container.getCurrentPanel().prepareMenu(menu);
 		return true;
 	}
@@ -159,7 +159,7 @@ public class Main extends MapActivity
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
-    	Log.i(TAG, Main.class.getSimpleName() + "onOptionsItemSelected");
+    	Log.i(TAG, Main.class.getSimpleName() + ": onOptionsItemSelected");
 		container.getCurrentPanel().menuHandler(item);
 		return true;
 	}

@@ -71,7 +71,7 @@ public class MUtil {
 				}
 			}
 		} catch (SocketException ex) {
-			Log.e(TAG, MUtil.class.getSimpleName() + " LocalIpGetter", ex);
+			Log.e(TAG, MUtil.class.getSimpleName() + ": LocalIpGetter", ex);
 		}
 		return null;
 	}
@@ -109,7 +109,7 @@ public class MUtil {
 				+ h
 				+ "&cs=DAY&dc=All&dsp=false&dsa=true&sf=true&ss=true&ssw=10.0&svsw=5.0&svdw=20.0";
 
-		Log.i(TAG, MUtil.class.getSimpleName() + "request: " + request);
+		Log.i(TAG, MUtil.class.getSimpleName() + ": request: " + request);
 
 		HttpGet httpget = new HttpGet(request);
 
@@ -132,15 +132,15 @@ public class MUtil {
 			InputStream is = null;
 			try {
 				Log.i(TAG, MUtil.class.getSimpleName()
-						+ " Getting Image Content");
+						+ ": Getting Image Content");
 				is = entity.getContent();
-				Log.i(TAG, MUtil.class.getSimpleName() + " Creating Drawable");
+				Log.i(TAG, MUtil.class.getSimpleName() + ": Creating Drawable");
 				BitmapDrawable bitmapDrawable = new BitmapDrawable(is);
 				Log.i(TAG, MUtil.class.getSimpleName()
-						+ " Fetching bitmap data");
+						+ ": Fetching bitmap data");
 				bitmap = bitmapDrawable.getBitmap();
 				Log.i(TAG,
-						MUtil.class.getSimpleName() + " W = "
+						MUtil.class.getSimpleName() + ": W = "
 								+ bitmap.getWidth() + " H = "
 								+ bitmap.getHeight());
 			} catch (RuntimeException ex) {
