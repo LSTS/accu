@@ -3,4 +3,10 @@
     <string name="app_name">ACCU</string>
     <color name="backgroundcolor">#D7F0F0</color>
     <color name="beaconDialogTextColor">#000000</color>
+    
+    <!-- Command control strings -->
+    <string name="control_accelerate">Accelerate</string>
+    <string name="control_decelerate">Decelerate</string>
+    <string name="control_stop">Stop</string>
+    
 </resources>
