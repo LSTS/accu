@@ -22,6 +22,8 @@ import android.util.Log;
  */
 public class Accu {
 
+	private static final String TAG = "ACCU";
+	
 	private static Context mContext;
 	private static Accu instance;
 	private static Sys activeSys;
@@ -45,7 +47,7 @@ public class Accu {
 	
 	private Accu(Context context)
 	{
-		System.out.println("Initializing Global ACCU Object");
+		Log.i(TAG, Accu.class.getSimpleName() + "Initializing Global ACCU Object");
 		mContext = context;
 		imcManager = new IMCManager();
 		imcManager.startComms(); // Start comms here upfront
@@ -55,8 +57,7 @@ public class Accu {
 		try {
 			broadcastAddress = MUtil.getBroadcastAddress(mContext);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Log.e(TAG, Accu.class.getSimpleName() + "Couldn't get Brodcast address", e);
 		}
 
 		mGpsManager = new GPSManager(mContext);
@@ -85,7 +86,7 @@ public class Accu {
 			started = true;
 		}
 		else
-			Log.i("ACCU ERROR","Already Started ACCU Global");
+			Log.e(TAG, Accu.class.getSimpleName() + "ACCU ERROR: Already Started ACCU Global");
 	}
 	public void pause()
 	{
@@ -99,7 +100,7 @@ public class Accu {
 			started = false;
 		}
 		else
-			Log.i("ACCU ERROR","ACCU Global already stopped");
+			Log.e(TAG, Accu.class.getSimpleName() + "ACCU ERROR: ACCU Global already stopped");
 	}
 	
 	public static Accu getInstance(Context context)
