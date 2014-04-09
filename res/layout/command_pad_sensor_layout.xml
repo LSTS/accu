@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="fill_parent"
-  android:layout_height="wrap_content"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
   android:orientation="vertical"
   android:gravity="right">
   	  <pt.lsts.accu.components.controlpad.PadButton 
-  	  	android:text="Accelerate" action="Accelerate"
+  	  	android:text="@string/control_accelerate" action="Accelerate"
   	  	android:layout_width="wrap_content" 
   	  	android:layout_height="wrap_content" 
   	  	android:tag="btn2"
   	  	android:layout_gravity="right"/>
   	  	
   	  <pt.lsts.accu.components.controlpad.PadButton 
-  	 	android:text="Decelerate" android:tag="btn3" 
+  	 	android:text="@string/control_decelerate" android:tag="btn3" 
   	  	action="Decelerate"
   	  	android:layout_width="wrap_content" 
   	  	android:layout_height="wrap_content"/>
   	 
   	 <pt.lsts.accu.components.controlpad.PadButton 
-  	 	android:text="Stop" android:tag="btn3" 
+  	 	android:text="@string/control_stop" android:tag="btn3" 
   	  	action="Stop"
   	  	android:layout_width="wrap_content" 
   	  	android:layout_height="wrap_content"/>
