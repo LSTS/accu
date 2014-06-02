@@ -1,50 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+    <TableRow android:layout_marginBottom="4dp" >
 
-        <TableRow android:layout_marginBottom="4dp" >
+        <TextView
+            android:tag="id"
+            android:textSize="20sp" />
+    </TableRow>
 
-            <TextView
-                android:tag="id"
-                android:textSize="20sp" />
-        </TableRow>
+    <TableRow>
 
-        <TableRow>
+        <TextView
+            android:paddingRight="4dp"
+            android:text="@string/beacon_list_lat"
+            android:textSize="20sp" />
 
-            <TextView
-                android:paddingRight="4dp"
-                android:text="@string/beacon_list_lat"
-                android:textSize="20sp" />
+        <TextView
+            android:paddingRight="10dp"
+            android:tag="lat"
+            android:textSize="20sp" />
 
-            <TextView
-                android:paddingRight="10dp"
-                android:tag="lat"
-                android:textSize="20sp" />
+        <TextView
+            android:paddingRight="4dp"
+            android:text="@string/beacon_list_lon"
+            android:textSize="20sp" />
 
-            <TextView
-                android:paddingRight="4dp"
-                android:text="@string/beacon_list_lon"
-                android:textSize="20sp" />
+        <TextView
+            android:paddingRight="10dp"
+            android:tag="lon"
+            android:textSize="20sp" />
 
-            <TextView
-                android:paddingRight="10dp"
-                android:tag="lon"
-                android:textSize="20sp" />
+        <TextView
+            android:text="@string/beacon_list_depth"
+            android:textSize="20sp" />
 
-            <TextView
-                android:text="@string/beacon_list_depth"
-                android:textSize="20sp" />
+        <TextView
+            android:tag="depth"
+            android:textSize="20sp" />
+    </TableRow>
 
-            <TextView
-                android:tag="depth"
-                android:textSize="20sp" />
-        </TableRow>
-    </TableLayout>
-
-</LinearLayout>
+</TableLayout>
