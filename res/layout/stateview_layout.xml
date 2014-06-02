@@ -1,61 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:stretchColumns="1"
+    style="@style/StateView_Style"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:padding="5dp"
-    style="@style/StateView_Style">
+    android:stretchColumns="1" >
 
-	<TableRow>
-		<TextView android:text="Latitude" android:textSize="@dimen/stateView_textSize1"></TextView> 
-		<TextView android:tag="lat" android:gravity="right" android:textSize="@dimen/stateView_textSize1"></TextView>
-		
-	</TableRow>
-	
-	<TableRow>
-		<TextView android:text="Longitude" android:textSize="@dimen/stateView_textSize1"></TextView> 
-		<TextView android:tag="lon" android:gravity="right" android:textSize="@dimen/stateView_textSize1"></TextView>
-		
-	</TableRow>
-	
-	<TableRow>
-		<TextView android:text="Depth" android:textSize="@dimen/stateView_textSize1"></TextView> 
-		<TextView android:tag="depth" android:gravity="right" android:textSize="@dimen/stateView_textSize1"></TextView>
-	
-	</TableRow>
-	
-	<TableRow>
-		<TextView android:text="Roll" android:textSize="@dimen/stateView_textSize1"></TextView> 
-		<TextView android:tag="roll" android:gravity="right" android:textSize="@dimen/stateView_textSize1"></TextView>		
-	</TableRow>
-	
-	<TableRow>
-		<TextView android:text="Pitch" android:textSize="@dimen/stateView_textSize1"></TextView> 
-		<TextView android:tag="pitch" android:gravity="right" android:textSize="@dimen/stateView_textSize1"></TextView>		
-	</TableRow>
-	
-	<TableRow>
-		<TextView android:text="Yaw" android:textSize="@dimen/stateView_textSize1"></TextView> 
-		<TextView android:tag="yaw" android:gravity="right" android:textSize="@dimen/stateView_textSize1"></TextView>		
-	</TableRow>
-	<TableRow>
-		<TextView android:text="Speed" android:textSize="@dimen/stateView_textSize1"></TextView> 
-		<TextView android:tag="speed" android:gravity="right" android:textSize="@dimen/stateView_textSize1"></TextView>		
-	</TableRow>
-	<TableRow>
-		<TextView android:text="Rpm" android:textSize="@dimen/stateView_textSize1"></TextView> 
-		<TextView android:tag="rpm" android:gravity="right" android:textSize="@dimen/stateView_textSize1"></TextView>		
-	</TableRow>
-	<TableRow android:paddingTop="10dp">
-		<TextView android:text="Operation Mode: " android:textSize="@dimen/stateView_textSize1"></TextView> 
-		<TextView android:tag="op_mode" android:gravity="right" android:textSize="@dimen/stateView_textSize1"></TextView>		
-	</TableRow>
-	<TableRow>
-		<TextView android:text="Error Count: " android:textSize="@dimen/stateView_textSize1"></TextView> 
-		<TextView android:tag="error_count" android:gravity="right" android:textSize="@dimen/stateView_textSize1"></TextView>		
-	</TableRow>
-	<TableRow>
-		<TextView android:text="Last Error" android:textSize="@dimen/stateView_textSize1"></TextView> 
-		<TextView android:maxLength="20" android:tag="last_error" android:textSize="@dimen/stateView_textSize1"></TextView>		
-	</TableRow>
+    <TableRow>
+
+        <TextView
+            android:text="@string/stateview_lat"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+
+        <TextView
+            android:gravity="right"
+            android:tag="lat"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:text="@string/stateview_long"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+
+        <TextView
+            android:gravity="right"
+            android:tag="lon"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:text="@string/stateview_depth"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+
+        <TextView
+            android:gravity="right"
+            android:tag="depth"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:text="@string/stateview_roll"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+
+        <TextView
+            android:gravity="right"
+            android:tag="roll"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:text="@string/stateview_pitch"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+
+        <TextView
+            android:gravity="right"
+            android:tag="pitch"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:text="@string/stateview_yaw"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+
+        <TextView
+            android:gravity="right"
+            android:tag="yaw"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:text="@string/stateview_speed"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+
+        <TextView
+            android:gravity="right"
+            android:tag="speed"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:text="@string/stateview_rpm"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+
+        <TextView
+            android:gravity="right"
+            android:tag="rpm"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+    </TableRow>
+
+    <TableRow android:paddingTop="10dp" >
+
+        <TextView
+            android:text="@string/stateview_op_mode"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+
+        <TextView
+            android:gravity="right"
+            android:tag="op_mode"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:text="@string/stateview_error_count"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+
+        <TextView
+            android:gravity="right"
+            android:tag="error_count"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:text="@string/stateview_last_error"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+
+        <TextView
+            android:maxLength="20"
+            android:tag="last_error"
+            android:textSize="@dimen/stateView_textSize1" >
+        </TextView>
+    </TableRow>
+
 </TableLayout>

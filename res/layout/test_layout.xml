@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:orientation="vertical"
-  android:gravity="right">
-  
-<!--   	<pt.up.fe.dceg.accu.components.controlpad.PadButton android:text="SetRemoteOn"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="right"
+    android:orientation="vertical" >
+
+    <!--
+       	<pt.up.fe.dceg.accu.components.controlpad.PadButton android:text="SetRemoteOn"
  	android:layout_width="wrap_content" android:layout_height="wrap_content" android:tag="btn1"/>
  	<LinearLayout
 	  android:layout_width="wrap_content"
@@ -17,11 +17,24 @@
  	</LinearLayout>
  	<pt.up.fe.dceg.accu.components.controlpad.PadButton android:text="SetRemotewhatebs"
  	android:layout_width="wrap_content" android:layout_height="wrap_content" android:tag="btn1"/>
- 	-->
- 	<Button android:text="SetRemoteOn"
- 	android:layout_width="wrap_content" android:layout_height="wrap_content" android:tag="btn1"/>
-  	<Button android:text="SetRemoteOFF"
- 	android:layout_width="wrap_content" android:layout_height="wrap_content" android:tag="btn1"/>
- 	<Button android:text="SetRemotewhatebs"
- 	android:layout_width="wrap_content" android:layout_height="wrap_content" android:tag="btn1"/>
+    -->
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="btn1"
+        android:text="@string/test_remote_on" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="btn1"
+        android:text="@string/test_remote_off" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="btn1"
+        android:text="@string/test_remote_hatebs" />
+
 </LinearLayout>

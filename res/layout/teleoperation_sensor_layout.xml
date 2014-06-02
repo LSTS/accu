@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:orientation="horizontal">
-	<pt.lsts.accu.components.controlpad.ControlPad2
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:id="@+id/pad"
-	pad_layout="@layout/command_pad_sensor_layout">
-	</pt.lsts.accu.components.controlpad.ControlPad2>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <pt.lsts.accu.components.controlpad.ControlPad2
+        android:id="@+id/pad"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        pad_layout="@layout/command_pad_sensor_layout" >
+    </pt.lsts.accu.components.controlpad.ControlPad2>
+
 </LinearLayout>

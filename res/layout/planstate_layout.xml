@@ -1,27 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent">
-  <TableRow>
-  	<TextView android:text="Plan State: " style="@style/textsizebig"></TextView>
-  	<TextView android:tag="state" style="@style/textsizebig"></TextView>
-  </TableRow>
-  <TableRow>
-  	<TextView android:text="Plan ID: " style="@style/textsizebig"></TextView>
-  	<TextView android:tag="plan_id" style="@style/textsizebig"></TextView>
-  </TableRow>
-  <TableRow>
-  	<TextView android:text="Maneuver ID: " style="@style/textsizebig"></TextView>
-  	<TextView android:tag="maneuver_id" style="@style/textsizebig"></TextView>
-  </TableRow>
-  <TableRow android:paddingBottom="5dp">
-  	<TextView android:text="Last Event: " style="@style/textsizebig"></TextView>
-  	<TextView android:tag="lastevent" style="@style/textsizebig"></TextView>
-  </TableRow>
-  <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
-  	<Button android:text="Start" android:tag="btnStart" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-  	<Button android:text="Stop" android:tag="btnStop" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-  	<Button android:text="Abort" android:tag="btnAbort" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-  </LinearLayout>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TableRow>
+
+        <TextView
+            style="@style/textsizebig"
+            android:text="@string/planstate" >
+        </TextView>
+
+        <TextView
+            style="@style/textsizebig"
+            android:tag="@string/planstate_state" >
+        </TextView>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            style="@style/textsizebig"
+            android:text="@string/planstate_plan_id" >
+        </TextView>
+
+        <TextView
+            style="@style/textsizebig"
+            android:tag="plan_id" >
+        </TextView>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            style="@style/textsizebig"
+            android:text="@string/planstate_maneuver_id" >
+        </TextView>
+
+        <TextView
+            style="@style/textsizebig"
+            android:tag="maneuver_id" >
+        </TextView>
+    </TableRow>
+
+    <TableRow android:paddingBottom="5dp" >
+
+        <TextView
+            style="@style/textsizebig"
+            android:text="@string/planstate_last_event" >
+        </TextView>
+
+        <TextView
+            style="@style/textsizebig"
+            android:tag="lastevent" >
+        </TextView>
+    </TableRow>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="btnStart"
+            android:text="@string/planstate_start" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="btnStop"
+            android:text="@string/planstate_stop" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="btnAbort"
+            android:text="@string/planstate_abort" >
+        </Button>
+    </LinearLayout>
+
 </TableLayout>

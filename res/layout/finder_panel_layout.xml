@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" 
-	android:layout_width="fill_parent" 
-	android:layout_height="fill_parent">
-	
-	<TextView android:layout_width="fill_parent" 
-		android:layout_height="wrap_content" 
-		android:id="@+id/finder_info"
-		android:textSize="18dp"/>
-	
-	<pt.lsts.accu.components.Finder
-  		android:layout_width="fill_parent"
-  		android:layout_height="fill_parent"
-  		android:layout_weight="1"
-  		android:id="@+id/ll_finder">	
-	</pt.lsts.accu.components.Finder>
-	<TextView android:layout_width="wrap_content" 
-  			android:textColor="#000000" 
-  			android:textSize="25dp"
-  			android:layout_height="wrap_content" 
-  			android:id="@+id/lblDistance" 
-  			android:layout_gravity="bottom" 
-  			android:gravity="center"/>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/finder_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp" />
+
+    <pt.lsts.accu.components.Finder
+        android:id="@+id/ll_finder"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" >
+    </pt.lsts.accu.components.Finder>
+
+    <TextView
+        android:id="@+id/lblDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="25sp" />
+
 </LinearLayout>

@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:orientation="horizontal">
-	<pt.lsts.accu.components.controlpad.JoystickPad
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:tag="joy1"
-	axisYaction="Port Motor">
-	</pt.lsts.accu.components.controlpad.JoystickPad>
-	<pt.lsts.accu.components.controlpad.JoystickPad
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:tag="joy2"
-	axisYaction="Starboard Motor">
-	</pt.lsts.accu.components.controlpad.JoystickPad>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <pt.lsts.accu.components.controlpad.JoystickPad
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        axisYaction="Port Motor"
+        android:tag="joy1" >
+    </pt.lsts.accu.components.controlpad.JoystickPad>
+
+    <pt.lsts.accu.components.controlpad.JoystickPad
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        axisYaction="Starboard Motor"
+        android:tag="joy2" >
+    </pt.lsts.accu.components.controlpad.JoystickPad>
+
 </LinearLayout>

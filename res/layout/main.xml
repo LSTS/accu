@@ -1,46 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-<pt.lsts.accu.types.android.TouchViewFlipper
-    android:layout_margin="6dip"
-    android:id="@+id/layoutswitcher"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-    	<pt.lsts.accu.components.SystemListView
-   			android:layout_width="fill_parent"
-   			android:layout_height="wrap_content"
-   			android:id="@+id/sys_list">
-    	</pt.lsts.accu.components.SystemListView>
-    	
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-		<pt.lsts.accu.components.EntityStateList
-    	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:id="@+id/entity_list">
-    	</pt.lsts.accu.components.EntityStateList>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-		<pt.lsts.accu.components.StateView
-    	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:id="@+id/stateview">
-    	</pt.lsts.accu.components.StateView>
-    </LinearLayout>
-</pt.lsts.accu.types.android.TouchViewFlipper>
-</RelativeLayout>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
-<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <pt.lsts.accu.types.android.TouchViewFlipper
+        android:id="@+id/layoutswitcher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="6dip" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <pt.lsts.accu.components.SystemListView
+                android:id="@+id/sys_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </pt.lsts.accu.components.SystemListView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <pt.lsts.accu.components.EntityStateList
+                android:id="@+id/entity_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </pt.lsts.accu.components.EntityStateList>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <pt.lsts.accu.components.StateView
+                android:id="@+id/stateview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </pt.lsts.accu.components.StateView>
+        </LinearLayout>
+    </pt.lsts.accu.types.android.TouchViewFlipper>
+
+</RelativeLayout>
+<!--
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:orientation="horizontal"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
