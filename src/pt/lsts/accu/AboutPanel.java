@@ -8,42 +8,44 @@ import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 
-public class AboutPanel extends AccuBasePanel 
-{	
-	public AboutPanel(Context context) {
-		super(context);
-	}
+public class AboutPanel extends AccuBasePanel
+{
+    public AboutPanel(Context context) {
+	super(context);
+    }
 
-	@Override
-	public void onStart() 
-	{		
-		String html = "<p><b>A</b>ndroid <b>C</b>ommand and <b>C</>ontrol <b>U</>nit </p><p>";
-		TextView title = (TextView)getLayout().findViewWithTag("title");
-		TextView version = (TextView)getLayout().findViewWithTag("version");
-		TextView authors = (TextView)getLayout().findViewWithTag("authors");
-		TextView lab = (TextView)getLayout().findViewWithTag("lab");
-		
-		title.setText(Html.fromHtml(html));
-		version.setText("Version: 1.0 Date: 15 Nov 2011 IMC version: " + IMCDefinition.getInstance().getVersion());
-		authors.setText("Authors: José Quadrado Correia");
-		lab.setText("Laboratório Sistemas e Tecnologias Subaquáticas");
-	}
+    @Override
+    public void onStart()
+    {
+	String html = "<p><b>A</b>ndroid <b>C</b>ommand and <b>C</>ontrol <b>U</>nit </p><p>";
+	TextView title = (TextView)getLayout().findViewWithTag("title");
+	TextView version = (TextView)getLayout().findViewWithTag("version");
+	TextView authors = (TextView)getLayout().findViewWithTag("authors");
+	TextView contributors = (TextView) getLayout().findViewWithTag("contributors");
+	TextView lab = (TextView)getLayout().findViewWithTag("lab");
 
-	@Override
-	public void onStop() {
-		
-	}
+	title.setText(Html.fromHtml(html));
+	version.setText("Version: 1.2 Date: 2 Jun 2014 IMC version: " + IMCDefinition.getInstance().getVersion());
+	authors.setText("Author: José Quadrado Correia");
+	contributors.setText("Contributors: José Pinto, Hugo Queirós");
+	lab.setText("Laboratório Sistemas e Tecnologias Subaquáticas");
+    }
 
-	@Override
-	public View buildLayout() {
-		View v = inflateFromResource(R.layout.about_layout);
-		
-		return v;
-	}
+    @Override
+    public void onStop() {
 
-	@Override
-	public int getIcon() {
-		return R.drawable.icon;
-	}
-	
+    }
+
+    @Override
+    public View buildLayout() {
+	View v = inflateFromResource(R.layout.about_layout);
+
+	return v;
+    }
+
+    @Override
+    public int getIcon() {
+	return R.drawable.icon;
+    }
+
 }

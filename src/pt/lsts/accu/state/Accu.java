@@ -23,184 +23,184 @@ import android.util.Log;
  */
 public class Accu {
 
-	private static final String TAG = "ACCU";
+    private static final String TAG = "ACCU";
 
-	private static Context mContext;
-	private static Accu instance;
-	private static Sys activeSys;
+    private static Context mContext;
+    private static Accu instance;
+    private static Sys activeSys;
 
-	private static IMCManager imcManager;
-	public SystemList mSysList;
-	public static Announcer mAnnouncer;
-	public static AccuSmsHandler mSmsHandler;
-	public static GPSManager mGpsManager;
-	public static HeartbeatVibrator mHBVibrator;
-	public static Heart mHeart;
-	public static LblBeaconList mBeaconList;
-	public static CallOut callOut;
+    private static IMCManager imcManager;
+    public SystemList mSysList;
+    public static Announcer mAnnouncer;
+    public static AccuSmsHandler mSmsHandler;
+    public static GPSManager mGpsManager;
+    public static HeartbeatVibrator mHBVibrator;
+    public static Heart mHeart;
+    public static LblBeaconList mBeaconList;
+    public static CallOut callOut;
 
-	private static ArrayList<MainSysChangeListener> mMainSysChangeListeners;
-	public String broadcastAddress;
-	public boolean started = false;
-	SharedPreferences mPrefs;
+    private static ArrayList<MainSysChangeListener> mMainSysChangeListeners;
+    public String broadcastAddress;
+    public boolean started = false;
+    public SharedPreferences mPrefs;
 
-	private static Integer requestId = 0xFFFF; // Request ID for quick plan
-												// sending
+    private static Integer requestId = 0xFFFF; // Request ID for quick plan
+    // sending
 
-	private Accu(Context context) {
-		Log.i(TAG, Accu.class.getSimpleName()
-				+ ": Initializing Global ACCU Object");
-		mContext = context;
-		imcManager = new IMCManager();
-		imcManager.startComms(); // Start comms here upfront
+    private Accu(Context context) {
+	Log.i(TAG, Accu.class.getSimpleName()
+		+ ": Initializing Global ACCU Object");
+	mContext = context;
+	imcManager = new IMCManager();
+	imcManager.startComms(); // Start comms here upfront
 
-		mSysList = new SystemList(imcManager);
+	mSysList = new SystemList(imcManager);
 
-		try {
-			broadcastAddress = MUtil.getBroadcastAddress(mContext);
-		} catch (IOException e) {
-			Log.e(TAG, Accu.class.getSimpleName()
-					+ ": Couldn't get Brodcast address", e);
-		}
-
-		mGpsManager = new GPSManager(mContext);
-		mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-		mMainSysChangeListeners = new ArrayList<MainSysChangeListener>();
-		mAnnouncer = new Announcer(imcManager, broadcastAddress, "224.0.75.69");
-		mSmsHandler = new AccuSmsHandler(mContext, imcManager);
-		mHBVibrator = new HeartbeatVibrator(mContext, imcManager);
-		callOut = new CallOut(mContext);
+	try {
+	    broadcastAddress = MUtil.getBroadcastAddress(mContext);
+	} catch (IOException e) {
+	    Log.e(TAG, Accu.class.getSimpleName()
+		    + ": Couldn't get Brodcast address", e);
 	}
 
-	public void load() {
-		Log.i(TAG, Accu.class.getSimpleName() + ": load");
-		mHeart = new Heart();
-		mBeaconList = new LblBeaconList();
-	}
+	mGpsManager = new GPSManager(mContext);
+	mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+	mMainSysChangeListeners = new ArrayList<MainSysChangeListener>();
+	mAnnouncer = new Announcer(imcManager, broadcastAddress, "224.0.75.69");
+	mSmsHandler = new AccuSmsHandler(mContext, imcManager);
+	mHBVibrator = new HeartbeatVibrator(mContext, imcManager);
+	callOut = new CallOut(mContext);
+    }
 
-	public void start() {
-		Log.i(TAG, Accu.class.getSimpleName() + ": start");
-		if (!started) {
-			imcManager.startComms();
-			mAnnouncer.start();
-			mSysList.start();
-			mHeart.start();
-			started = true;
-		} else
-			Log.e(TAG, Accu.class.getSimpleName()
-					+ ": ACCU ERROR: Already Started ACCU Global");
-	}
+    public void load() {
+	Log.i(TAG, Accu.class.getSimpleName() + ": load");
+	mHeart = new Heart();
+	mBeaconList = new LblBeaconList();
+    }
 
-	public void pause() {
-		Log.i(TAG, Accu.class.getSimpleName() + ": pause");
-		if (started) {
-			imcManager.killComms();
-			mAnnouncer.stop();
-			mSysList.stop();
-			mHeart.stop();
-			mSmsHandler.stop();
-			started = false;
-		} else
-			Log.e(TAG, Accu.class.getSimpleName()
-					+ ": ACCU ERROR: ACCU Global already stopped");
-	}
+    public void start() {
+	Log.i(TAG, Accu.class.getSimpleName() + ": start");
+	if (!started) {
+	    imcManager.startComms();
+	    mAnnouncer.start();
+	    mSysList.start();
+	    mHeart.start();
+	    started = true;
+	} else
+	    Log.e(TAG, Accu.class.getSimpleName()
+		    + ": ACCU ERROR: Already Started ACCU Global");
+    }
 
-	public static Accu getInstance(Context context) {
-		Log.i(TAG, Accu.class.getSimpleName() + ": getInstance(context)");
-		if (instance == null) {
-			instance = new Accu(context);
-		}
-		return instance;
-	}
+    public void pause() {
+	Log.i(TAG, Accu.class.getSimpleName() + ": pause");
+	if (started) {
+	    imcManager.killComms();
+	    mAnnouncer.stop();
+	    mSysList.stop();
+	    mHeart.stop();
+	    mSmsHandler.stop();
+	    started = false;
+	} else
+	    Log.e(TAG, Accu.class.getSimpleName()
+		    + ": ACCU ERROR: ACCU Global already stopped");
+    }
 
-	public static Accu getInstance() {
-		Log.i(TAG, Accu.class.getSimpleName() + ": getInstance");
-		return instance;
+    public static Accu getInstance(Context context) {
+	Log.i(TAG, Accu.class.getSimpleName() + ": getInstance(context)");
+	if (instance == null) {
+	    instance = new Accu(context);
 	}
+	return instance;
+    }
 
-	// public static void killInstance()
-	// {
-	// instance = null;
-	// mSysList.timer.cancel(); //FIXME For now the timer cancelling goes here..
-	// mAnnouncer.timer.cancel(); //FIXME same as above
-	// }
-	
-	public Sys getActiveSys() {
-		Log.i(TAG, Accu.class.getSimpleName() + ": getActiveSys");
-		return activeSys;
-	}
+    public static Accu getInstance() {
+	Log.i(TAG, Accu.class.getSimpleName() + ": getInstance");
+	return instance;
+    }
 
-	public void setActiveSys(Sys activeS) {
-		Log.i(TAG, Accu.class.getSimpleName() + ": setActiveSys");
-		activeSys = activeS;
-		notifyMainSysChange();
-	}
+    // public static void killInstance()
+    // {
+    // instance = null;
+    // mSysList.timer.cancel(); //FIXME For now the timer cancelling goes here..
+    // mAnnouncer.timer.cancel(); //FIXME same as above
+    // }
 
-	public IMCManager getIMCManager() {
-		Log.i(TAG, Accu.class.getSimpleName() + ": getIMCManager");
-		return imcManager;
-	}
+    public Sys getActiveSys() {
+	Log.i(TAG, Accu.class.getSimpleName() + ": getActiveSys");
+	return activeSys;
+    }
 
-	public SystemList getSystemList() {
-		Log.i(TAG, Accu.class.getSimpleName() + ": getSystemList");
-		return mSysList;
-	}
+    public void setActiveSys(Sys activeS) {
+	Log.i(TAG, Accu.class.getSimpleName() + ": setActiveSys");
+	activeSys = activeS;
+	notifyMainSysChange();
+    }
 
-	public GPSManager getGpsManager() {
-		Log.i(TAG, Accu.class.getSimpleName() + ": getGpsManager");
-		return mGpsManager;
-	}
+    public IMCManager getIMCManager() {
+	Log.i(TAG, Accu.class.getSimpleName() + ": getIMCManager");
+	return imcManager;
+    }
 
-	public LblBeaconList getLblBeaconList() {
-		Log.i(TAG, Accu.class.getSimpleName() + ": getLblBeaconList");
-		return mBeaconList;
-	}
+    public SystemList getSystemList() {
+	Log.i(TAG, Accu.class.getSimpleName() + ": getSystemList");
+	return mSysList;
+    }
 
-	public CallOut getCallOut() {
-		Log.i(TAG, Accu.class.getSimpleName() + ": getCallOut");
-		return callOut;
-	}
+    public GPSManager getGpsManager() {
+	Log.i(TAG, Accu.class.getSimpleName() + ": getGpsManager");
+	return mGpsManager;
+    }
 
-	// Main System listeners list related code
-	public void addMainSysChangeListener(MainSysChangeListener listener) {
-		Log.i(TAG, Accu.class.getSimpleName() + ": addMainSysChangeListener");
-		mMainSysChangeListeners.add(listener);
-	}
+    public LblBeaconList getLblBeaconList() {
+	Log.i(TAG, Accu.class.getSimpleName() + ": getLblBeaconList");
+	return mBeaconList;
+    }
 
-	public void removeMainSysChangeListener(MainSysChangeListener listener) {
-		Log.i(TAG, Accu.class.getSimpleName() + ": removeMainSysChangeListener");
-		mMainSysChangeListeners.remove(listener);
-	}
+    public CallOut getCallOut() {
+	Log.i(TAG, Accu.class.getSimpleName() + ": getCallOut");
+	return callOut;
+    }
 
-	private static void notifyMainSysChange() {
-		Log.i(TAG, Accu.class.getSimpleName() + ": notifyMainSysChange");
-		for (MainSysChangeListener l : mMainSysChangeListeners) {
-			l.onMainSysChange(activeSys);
-		}
-	}
+    // Main System listeners list related code
+    public void addMainSysChangeListener(MainSysChangeListener listener) {
+	Log.i(TAG, Accu.class.getSimpleName() + ": addMainSysChangeListener");
+	mMainSysChangeListeners.add(listener);
+    }
 
-	public SharedPreferences getPrefs() {
-		Log.i(TAG, Accu.class.getSimpleName() + ": getPrefs");
-		return mPrefs;
-	}
+    public void removeMainSysChangeListener(MainSysChangeListener listener) {
+	Log.i(TAG, Accu.class.getSimpleName() + ": removeMainSysChangeListener");
+	mMainSysChangeListeners.remove(listener);
+    }
 
-	public boolean isStarted() {
-		Log.i(TAG, Accu.class.getSimpleName() + ": isStarted");
-		return started;
+    private static void notifyMainSysChange() {
+	Log.i(TAG, Accu.class.getSimpleName() + ": notifyMainSysChange");
+	for (MainSysChangeListener l : mMainSysChangeListeners) {
+	    l.onMainSysChange(activeSys);
 	}
+    }
 
-	/**
-	 * @return the next requestId
-	 */
-	public int getNextRequestId() {
-		Log.i(TAG, Accu.class.getSimpleName() + ": getNextRequestId");
-		synchronized (requestId) {
-			++requestId;
-			if (requestId > 0xFFFF)
-				requestId = 0;
-			if (requestId < 0)
-				requestId = 0;
-			return requestId;
-		}
+    public SharedPreferences getPrefs() {
+	Log.i(TAG, Accu.class.getSimpleName() + ": getPrefs");
+	return mPrefs;
+    }
+
+    public boolean isStarted() {
+	Log.i(TAG, Accu.class.getSimpleName() + ": isStarted");
+	return started;
+    }
+
+    /**
+     * @return the next requestId
+     */
+    public int getNextRequestId() {
+	Log.i(TAG, Accu.class.getSimpleName() + ": getNextRequestId");
+	synchronized (requestId) {
+	    ++requestId;
+	    if (requestId > 0xFFFF)
+		requestId = 0;
+	    if (requestId < 0)
+		requestId = 0;
+	    return requestId;
 	}
+    }
 }
