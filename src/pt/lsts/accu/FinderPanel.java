@@ -205,6 +205,6 @@ implements IMCSubscriber,OnFinderChangeListener
 				+ CoordUtil.degreesToDMS(targetLat, true) + " Lon: "
 				+ CoordUtil.degreesToDMS(targetLon, false));
 		tvDist.setText("Distance: "
-				+ MUtil.roundn(/* convert to meters */distance*1000,2)+ " meters Accu: "+accuracy);		
+				+ MUtil.roundn(/* convert to meters */distance * 1000, 2)+ " meters Accuracy: " + accuracy);		
 	}
 }
