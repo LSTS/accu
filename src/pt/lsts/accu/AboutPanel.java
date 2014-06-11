@@ -25,10 +25,10 @@ public class AboutPanel extends AccuBasePanel
 	TextView lab = (TextView)getLayout().findViewWithTag("lab");
 
 	title.setText(Html.fromHtml(html));
-	version.setText("Version: 1.2 Date: 2 Jun 2014 IMC version: " + IMCDefinition.getInstance().getVersion());
-	authors.setText("Author: Jos√© Quadrado Correia");
-	contributors.setText("Contributors: Jos√© Pinto, Hugo Queir√≥s");
-	lab.setText("Laborat√≥rio Sistemas e Tecnologias Subaqu√°ticas");
+	version.setText("Version: 1.3 Date: 9 Jun 2014 IMC version: " + IMCDefinition.getInstance().getVersion());
+	authors.setText("Author: JosÈ Quadrado Correia");
+	contributors.setText("Contributors: JosÈ Pinto, Hugo QueirÛs, Paulo Dias");
+	lab.setText("LaboratÛrio Sistemas e Tecnologias Subaqu·ticas");
     }
 
     @Override
