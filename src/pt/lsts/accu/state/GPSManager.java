@@ -98,10 +98,10 @@ public class GPSManager {
 		if(!running)
 		{
 			// Register for GPS and NETWORK updates
-			manager.requestLocationUpdates("gps", 2000, 0, listener);
+			manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 0, listener);
 			// UNCOMMENT TO GET NETWORK UPDATES
 			if(Accu.getInstance().getPrefs().getBoolean("networkFix", false))
-				manager.requestLocationUpdates("network", 2000, 0, listener);
+				manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 2000, 0, listener);
 			running = true;
 		}
 	}
