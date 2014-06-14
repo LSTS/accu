@@ -199,4 +199,26 @@ public class Announcer
 			e.printStackTrace();
 		}
 	}
+	
+//	private void teste() {
+//		if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+//	        accelerometerValues = event.values;
+//	    }
+//
+//	    if (sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
+//	        magneticFieldValues = event.values;
+//	    }
+//
+//	    SensorManager.getRotationMatrix(rotate, null, accelerometerValues,
+//	            magneticFieldValues);
+//	    SensorManager.remapCoordinateSystem(rotate, SensorManager.AXIS_X, SensorManager.AXIS_MINUS_Z, rotate); //Overwriting rotate matrix with the rotated values
+//	    SensorManager.getOrientation(rotate, rotationValues);
+//
+//	    // change radian to degree
+//	    rotationValues[0] = (float) Math.toDegrees(rotationValues[0]);
+//	    rotationValues[1] = (float) Math.toDegrees(rotationValues[1]);
+//	    rotationValues[2] = (float) Math.toDegrees(rotationValues[2]);
+//	    
+//	    float course = (float) Math.toDegrees(rotationValues[2]);
+//	}
 }
