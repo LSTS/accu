@@ -38,6 +38,8 @@ public class Announcer
 		@Override
 		public void run()
 		{
+			boolean announcePosition = Accu.getInstance().getPrefs().getBoolean("announcePosition", true);
+			
 			if(DEBUG)Log.i(TAG,announce.toString());
 			if(imm.getListener()==null)
 			{
@@ -45,7 +47,7 @@ public class Announcer
 				gpsAddListenerCounter = 0;
 				return;
 			}
-			if (gpsAddListenerCounter == 0) 
+			if (gpsAddListenerCounter == 0 && announcePosition) 
 			{
 				gpsManager.addListener(locListener);
 			}
@@ -102,7 +104,11 @@ public class Announcer
 		generateAnnounce(); // Generate announce message only on start
 		at.start();
 		
-		gpsManager.addListener(locListener);
+		boolean announcePosition = Accu.getInstance().getPrefs().getBoolean("announcePosition", true);
+		if (announcePosition)
+			gpsManager.addListener(locListener);
+		boolean announceheading = Accu.getInstance().getPrefs().getBoolean("announceHeading", true);
+		if (announceheading)
 			sensorManager.registerListener(orientationListener, sensor, SensorManager.SENSOR_DELAY_GAME);
 	}
 	
@@ -120,6 +126,10 @@ public class Announcer
 	
 	private void updateLocationOnAnnounce()
 	{
+		boolean announcePosition = Accu.getInstance().getPrefs().getBoolean("announcePosition", true);
+		if (!announcePosition)
+			return;
+
 		Location currentLocation = Accu.getInstance().getGpsManager().getCurrentLocation();
 		double lat = currentLocation.getLatitude();
 		double lon = currentLocation.getLongitude();
@@ -132,11 +142,17 @@ public class Announcer
 	
 	private void updateHeadingOnAnnounce() 
 	{
+		boolean announceHeading = Accu.getInstance().getPrefs().getBoolean("announceHeading", true);
 		String headingDegStr = myHeading < 0 || Double.isInfinite(myHeading)
 				|| Double.isNaN(myHeading) ? "" : "heading://0.0.0.0/"
 				+ Math.round(myHeading);
 		
+		if (announceHeading)
 			announce.setValue("services", services + ";" + headingDegStr);
+		else
+			announce.setValue("services", services);
+	}
+	
 	/**
 	 * This function can be called to (re)generate the Announce message sent by the console
 	 */

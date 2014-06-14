@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
   xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:summary="Announce position" android:title="Announce Position" android:key="announcePosition" android:defaultValue="true"></CheckBoxPreference>
+    <CheckBoxPreference android:summary="Announce heading" android:title="Announce Heading" android:key="announceHeading" android:defaultValue="true"></CheckBoxPreference>
     <CheckBoxPreference android:summary="On/Off Vibration when receiving heartbeat" android:title="Vibration" android:key="vibrate"></CheckBoxPreference>
     <CheckBoxPreference android:key="vehicleOnly" android:summary="Display only vehicles in System List" android:title="Vehicle Only"></CheckBoxPreference>
     <CheckBoxPreference android:summary="Enable the system to get a GPS fix through network" android:key="networkFix" android:title="Network GPS Fix"></CheckBoxPreference>
