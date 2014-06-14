@@ -10,6 +10,7 @@ import pt.lsts.accu.types.Sys;
 import pt.lsts.accu.util.MUtil;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.hardware.SensorManager;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
@@ -38,6 +39,7 @@ public class Accu {
     public static Heart mHeart;
     public static LblBeaconList mBeaconList;
     public static CallOut callOut;
+    public static SensorManager mSensorManager;
 
     private static ArrayList<MainSysChangeListener> mMainSysChangeListeners;
     public String broadcastAddress;
@@ -64,6 +66,7 @@ public class Accu {
 	}
 
 	mGpsManager = new GPSManager(mContext);
+	mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
 	mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 	mMainSysChangeListeners = new ArrayList<MainSysChangeListener>();
 	mAnnouncer = new Announcer(imcManager, broadcastAddress, "224.0.75.69");
@@ -151,6 +154,10 @@ public class Accu {
 	return mGpsManager;
     }
 
+    public SensorManager getSensorManager() {
+		return mSensorManager;
+	}
+    
     public LblBeaconList getLblBeaconList() {
 	Log.i(TAG, Accu.class.getSimpleName() + ": getLblBeaconList");
 	return mBeaconList;

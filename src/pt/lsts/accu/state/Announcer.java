@@ -5,6 +5,10 @@ import pt.lsts.accu.util.AccuTimer;
 import pt.lsts.accu.util.MUtil;
 import pt.lsts.imc.IMCDefinition;
 import pt.lsts.imc.IMCMessage;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.location.Location;
 import android.util.Log;
 
@@ -23,7 +27,12 @@ public class Announcer
 	private AccuTimer at;
 	private int gpsAddListenerCounter = 0;
 	private GPSManager gpsManager; // = Accu.getInstance().getGpsManager();
+	private SensorManager sensorManager;
 	
+	private double myHeading = Double.NaN;
+	private String services = "";
+	private Sensor sensor;
+
 	private Runnable task = new Runnable()
 	{
 		@Override
@@ -54,7 +63,6 @@ public class Announcer
 			}
 		}
 	};
-	private String services = "";
 	private LocationChangeListener locListener = new LocationChangeListener() {
 		@Override
 		public void onLocationChange(Location location) 
@@ -63,6 +71,17 @@ public class Announcer
 		}
 	};
 	
+	private SensorEventListener orientationListener = new SensorEventListener() {
+		@Override
+		public void onSensorChanged(SensorEvent event) {
+			myHeading = event.values[0];
+			updateHeadingOnAnnounce();
+		}
+		
+		@Override
+		public void onAccuracyChanged(Sensor sensor, int accuracy) {
+		}
+	}; 
 	public Announcer(IMCManager imm,String broadcast, String multicast)
 	{
 		this.imm = imm;
@@ -76,17 +95,22 @@ public class Announcer
 	public void start()
 	{
 		gpsManager = Accu.getInstance().getGpsManager();
+		sensorManager = Accu.getInstance().getSensorManager();
+		
+		sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);
 		
 		generateAnnounce(); // Generate announce message only on start
 		at.start();
 		
 		gpsManager.addListener(locListener);
+			sensorManager.registerListener(orientationListener, sensor, SensorManager.SENSOR_DELAY_GAME);
 	}
 	
 	public void stop()
 	{
 		at.stop();
 		gpsManager.removeListener(locListener);
+		sensorManager.unregisterListener(orientationListener);
 	}
 	
 	public void setBroadcastAddress(String addr)
@@ -106,6 +130,13 @@ public class Announcer
 		announce.setValue("height", height);
 	}
 	
+	private void updateHeadingOnAnnounce() 
+	{
+		String headingDegStr = myHeading < 0 || Double.isInfinite(myHeading)
+				|| Double.isNaN(myHeading) ? "" : "heading://0.0.0.0/"
+				+ Math.round(myHeading);
+		
+			announce.setValue("services", services + ";" + headingDegStr);
 	/**
 	 * This function can be called to (re)generate the Announce message sent by the console
 	 */
