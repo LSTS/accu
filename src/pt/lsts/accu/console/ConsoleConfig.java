@@ -26,6 +26,7 @@ import pt.lsts.accu.AboutPanel;
 import pt.lsts.accu.BeaconCfgPanel;
 import pt.lsts.accu.EntityListPanel;
 import pt.lsts.accu.FinderPanel;
+import pt.lsts.accu.HeadingTestPanel;
 import pt.lsts.accu.MapPanel;
 import pt.lsts.accu.PlanStatePanel;
 import pt.lsts.accu.PreferenceAction;
@@ -208,7 +209,8 @@ public class ConsoleConfig
         panelList.add(new PanelConfigItem(BeaconCfgPanel.class,true,9));
         panelList.add(new PanelConfigItem(PreferenceAction.class,true,10));
         panelList.add(new PanelConfigItem(TestPanel.class,true,11));
-        panelList.add(new PanelConfigItem(TtsTestPanel.class,true,12));        
+        panelList.add(new PanelConfigItem(TtsTestPanel.class,true,12));
+        panelList.add(new PanelConfigItem(HeadingTestPanel.class,true,13));
     }
     
 	/**
