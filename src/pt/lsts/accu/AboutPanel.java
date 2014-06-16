@@ -10,42 +10,43 @@ import android.widget.TextView;
 
 public class AboutPanel extends AccuBasePanel
 {
-    public AboutPanel(Context context) {
-	super(context);
+    public AboutPanel(Context context) 
+    {
+        super(context);
     }
 
     @Override
     public void onStart()
     {
-	String html = "<p><b>A</b>ndroid <b>C</b>ommand and <b>C</>ontrol <b>U</>nit </p><p>";
-	TextView title = (TextView)getLayout().findViewWithTag("title");
-	TextView version = (TextView)getLayout().findViewWithTag("version");
-	TextView authors = (TextView)getLayout().findViewWithTag("authors");
-	TextView contributors = (TextView) getLayout().findViewWithTag("contributors");
-	TextView lab = (TextView)getLayout().findViewWithTag("lab");
+        String html = "<p><b>A</b>ndroid <b>C</b>ommand and <b>C</>ontrol <b>U</>nit </p><p>";
+        TextView title = (TextView)getLayout().findViewWithTag("title");
+        TextView version = (TextView)getLayout().findViewWithTag("version");
+        TextView authors = (TextView)getLayout().findViewWithTag("authors");
+        TextView contributors = (TextView) getLayout().findViewWithTag("contributors");
+        TextView lab = (TextView)getLayout().findViewWithTag("lab");
 
-	title.setText(Html.fromHtml(html));
-	version.setText("Version: 1.3 Date: 11-Jun-2014 IMC version: " + IMCDefinition.getInstance().getVersion());
-	authors.setText("Author: José Quadrado Correia");
-	contributors.setText("Contributors: José Pinto, Hugo Queirós, Paulo Dias");
-	lab.setText("© Laboratório Sistemas e Tecnologias Subaquáticas");
+        title.setText(Html.fromHtml(html));
+        version.setText("Version: 1.3 Date: 16-Jun-2014 IMC version: " + IMCDefinition.getInstance().getVersion());
+        authors.setText("Author: José Quadrado Correia");
+        contributors.setText("Contributors: José Pinto, Hugo Queirós, Paulo Dias");
+        lab.setText("© Laboratório Sistemas e Tecnologias Subaquáticas");
     }
 
     @Override
-    public void onStop() {
-
+    public void onStop() 
+    {
     }
 
     @Override
-    public View buildLayout() {
-	View v = inflateFromResource(R.layout.about_layout);
-
-	return v;
+    public View buildLayout() 
+    {
+        View v = inflateFromResource(R.layout.about_layout);
+        return v;
     }
 
     @Override
-    public int getIcon() {
-	return R.drawable.icon;
+    public int getIcon() 
+    {
+        return R.drawable.icon;
     }
-
 }
