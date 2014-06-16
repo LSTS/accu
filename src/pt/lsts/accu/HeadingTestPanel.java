@@ -9,6 +9,7 @@ import pt.lsts.accu.state.GPSManager;
 import pt.lsts.accu.state.LocationChangeListener;
 import pt.lsts.accu.util.MUtil;
 import pt.up.fe.dceg.accu.R;
+import android.app.Activity;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -16,7 +17,9 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.location.Location;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 /**
@@ -130,6 +133,7 @@ public class HeadingTestPanel extends AccuBasePanel
         sensorManager.registerListener(accelerationAndMagneticListener, sensorAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(accelerationAndMagneticListener, sensorMagnetometer, SensorManager.SENSOR_DELAY_NORMAL);
         
+//        Display display = ((WindowManager) getSystemService(Activity.WINDOW_SERVICE)).getDefaultDisplay();
         updateText();
     }
 
