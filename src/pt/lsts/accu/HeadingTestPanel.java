@@ -11,6 +11,7 @@ import pt.lsts.accu.util.MUtil;
 import pt.up.fe.dceg.accu.R;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -18,6 +19,7 @@ import android.hardware.SensorManager;
 import android.location.Location;
 import android.util.Log;
 import android.view.Display;
+import android.view.Surface;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -35,8 +37,10 @@ public class HeadingTestPanel extends AccuBasePanel
     private Sensor sensorMagnetometer;
     
     private double myHeading = 0;
-    private double myHeading2 = 0;
     private Location myLocation = null;
+    
+    private int screenOrient = Configuration.ORIENTATION_UNDEFINED;
+    private int screenRotation = Surface.ROTATION_0;
     
     private float[] mLastAccelerometer = new float[3];
     private float[] mLastMagnetometer = new float[3];
@@ -133,7 +137,10 @@ public class HeadingTestPanel extends AccuBasePanel
         sensorManager.registerListener(accelerationAndMagneticListener, sensorAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(accelerationAndMagneticListener, sensorMagnetometer, SensorManager.SENSOR_DELAY_NORMAL);
         
-//        Display display = ((WindowManager) getSystemService(Activity.WINDOW_SERVICE)).getDefaultDisplay();
+        screenOrient = getContext().getResources().getConfiguration().orientation;
+        Display display = ((WindowManager) getContext().getSystemService(Activity.WINDOW_SERVICE)).getDefaultDisplay();
+        screenRotation = display.getRotation();
+        
         updateText();
     }
 
@@ -166,6 +173,10 @@ public class HeadingTestPanel extends AccuBasePanel
     }
    
     private void updateText() {
+        screenOrient = getContext().getResources().getConfiguration().orientation;
+        Display display = ((WindowManager) getContext().getSystemService(Activity.WINDOW_SERVICE)).getDefaultDisplay();
+        screenRotation = display.getRotation();
+
         String txtStr = "HEADING TEST";
         txtStr += "\n";
         txtStr += "Has Orientation " + mLastOrientationSet + " " + sensorOrientation;
@@ -190,6 +201,43 @@ public class HeadingTestPanel extends AccuBasePanel
         txtStr += "Magnetometer: " + ((mLastMagnetometerSet) ? String.format("  %fμT,   %fμT,   %fμT",
                 mLastMagnetometer[0], mLastMagnetometer[1], mLastMagnetometer[2]) : "");
         txtStr += "\n";
+        
+        switch (screenOrient) {
+            case Configuration.ORIENTATION_LANDSCAPE:
+                txtStr += "Screen Orient: " + "Landscape\n";
+                break;
+            case Configuration.ORIENTATION_PORTRAIT:
+                txtStr += "Screen Orient: " + "Portrait\n";
+                break;
+            case Configuration.ORIENTATION_SQUARE:
+                txtStr += "Screen Orient: " + "Square\n";
+                break;
+            case Configuration.ORIENTATION_UNDEFINED:
+                txtStr += "Screen Orient: " + "Undefined\n";
+                break;
+            default:
+                txtStr += "Screen Orient: " + "Undefined (" + screenOrient + ")\n";
+                break;
+        }
+
+        switch (screenRotation) {
+            case Surface.ROTATION_0:
+                txtStr += "Screen Rotation: " + "0°\n";
+                break;
+            case Surface.ROTATION_90:
+                txtStr += "Screen Rotation: " + "90°\n";
+                break;
+            case Surface.ROTATION_180:
+                txtStr += "Screen Rotation: " + "180°\n";
+                break;
+            case Surface.ROTATION_270:
+                txtStr += "Screen Rotation: " + "270°\n";
+                break;
+            default:
+                txtStr += "Screen Rotation: " + "Undefined (" + screenRotation + ")\n";
+                break;
+        }
+
         System.out.println(txtStr);
         text.setText(txtStr);
     }
