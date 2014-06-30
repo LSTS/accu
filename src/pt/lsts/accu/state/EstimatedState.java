@@ -41,8 +41,6 @@ public class EstimatedState {
     public EstimatedState(IMCManager imm) {
         this.imm = imm;
 
-        initializeSensors();
-
         timer = new AccuTimer(task, DELAY);
     }
 
@@ -127,6 +125,7 @@ public class EstimatedState {
     }
 
     public void start() {
+        initializeSensors();
         generateIMCMessage();// Generate message only on start
         timer.start();
 
