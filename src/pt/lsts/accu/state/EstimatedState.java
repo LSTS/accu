@@ -215,9 +215,9 @@ public class EstimatedState {
 
     private void updateHeadingAceMagn() {
         //put values in IMCMessage, global values updated with listener
-        imcMessage.setValue("azimuth", Math.toDegrees(azimuth));
-        imcMessage.setValue("pitch", Math.toDegrees(pitch));
-        imcMessage.setValue("roll", Math.toDegrees(roll));
+        imcMessage.setValue("phi", azimuth);
+        imcMessage.setValue("theta", pitch);
+        imcMessage.setValue("psi", roll);
     }
 
     private void updateHeadingGPSbearing() {
