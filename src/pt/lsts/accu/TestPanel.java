@@ -4,7 +4,7 @@ import pt.lsts.accu.components.Finder;
 import pt.lsts.accu.foo.AccuMapComponent;
 import pt.lsts.accu.panel.AccuAction;
 import pt.lsts.accu.panel.AccuBasePanel;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.content.Context;
 import android.view.View;
 

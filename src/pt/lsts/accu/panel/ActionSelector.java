@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import pt.lsts.accu.state.Accu;
 import pt.lsts.accu.state.MainSysChangeListener;
 import pt.lsts.accu.types.Sys;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.ColorMatrix;

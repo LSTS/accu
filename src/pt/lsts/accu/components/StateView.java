@@ -6,7 +6,7 @@ import pt.lsts.accu.state.Accu;
 import pt.lsts.accu.util.CoordUtil;
 import pt.lsts.accu.util.MUtil;
 import pt.lsts.imc.IMCMessage;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;

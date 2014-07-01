@@ -2,7 +2,7 @@ package pt.lsts.accu;
 
 import pt.lsts.accu.panel.AccuBasePanel;
 import pt.lsts.imc.IMCDefinition;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.content.Context;
 import android.text.Html;
 import android.view.View;
@@ -26,7 +26,7 @@ public class AboutPanel extends AccuBasePanel
         TextView lab = (TextView)getLayout().findViewWithTag("lab");
 
         title.setText(Html.fromHtml(html));
-        version.setText("Version: 1.3 Date: 16-Jun-2014 IMC version: " + IMCDefinition.getInstance().getVersion());
+        version.setText("Version: 1.3 Date: 01-Jul-2014 IMC version: " + IMCDefinition.getInstance().getVersion());
         authors.setText("Author: José Quadrado Correia");
         contributors.setText("Contributors: José Pinto, Hugo Queirós, Paulo Dias");
         lab.setText("© Laboratório Sistemas e Tecnologias Subaquáticas");

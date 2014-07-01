@@ -12,7 +12,7 @@ import pt.lsts.accu.types.android.SystemOverlay;
 import pt.lsts.accu.util.CoordUtil;
 import pt.lsts.imc.IMCDefinition;
 import pt.lsts.imc.IMCMessage;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;

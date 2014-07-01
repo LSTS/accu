@@ -5,7 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)

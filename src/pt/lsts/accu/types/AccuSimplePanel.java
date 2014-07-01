@@ -1,7 +1,7 @@
 package pt.lsts.accu.types;
 
 import pt.lsts.accu.panel.AccuBasePanel;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.content.Context;
 import android.view.View;
 

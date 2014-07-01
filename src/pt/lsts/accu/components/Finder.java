@@ -7,7 +7,7 @@ import pt.lsts.accu.state.LocationChangeListener;
 import pt.lsts.accu.types.Sys;
 import pt.lsts.accu.types.android.MyBitmapDrawable;
 import pt.lsts.accu.util.CoordUtil;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;

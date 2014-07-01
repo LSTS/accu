@@ -2,7 +2,7 @@ package pt.lsts.accu.panel;
 
 import java.util.ArrayList;
 
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;

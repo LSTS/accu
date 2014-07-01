@@ -21,7 +21,7 @@ import pt.lsts.accu.util.CoordUtil;
 import pt.lsts.accu.util.MUtil;
 import pt.lsts.imc.IMCDefinition;
 import pt.lsts.imc.IMCMessage;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;

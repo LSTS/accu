@@ -14,7 +14,7 @@ import pt.lsts.accu.types.android.CoordDialog;
 import pt.lsts.accu.util.CoordUtil;
 import pt.lsts.accu.util.MUtil;
 import pt.lsts.imc.IMCMessage;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;

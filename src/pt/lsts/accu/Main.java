@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import pt.lsts.accu.console.ConsoleConfig;
 import pt.lsts.accu.panel.AccuPanelContainer;
 import pt.lsts.accu.state.Accu;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.PowerManager;
