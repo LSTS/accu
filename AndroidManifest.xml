@@ -7,7 +7,6 @@
     <application android:icon="@drawable/icon" android:label="@string/app_name" android:name="pt.lsts.accu.App">
         <activity android:name="pt.lsts.accu.Main"
                   android:label="@string/app_name"
-                  android:screenOrientation="landscape"
                   android:theme="@style/AccuBaseTheme"
                   >
             <intent-filter>
