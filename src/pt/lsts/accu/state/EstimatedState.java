@@ -1,11 +1,14 @@
 package pt.lsts.accu.state;
 
+import android.app.Activity;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.location.Location;
 import android.util.Log;
+import android.view.Display;
+import android.view.WindowManager;
 import pt.lsts.accu.msg.IMCManager;
 import pt.lsts.accu.types.Sys;
 import pt.lsts.accu.util.AccuTimer;
@@ -168,6 +171,13 @@ public class EstimatedState {
                     float orientation[] = new float[3];
                     SensorManager.getOrientation(R, orientation);
                     // orientation contains: azimuth [0], pitch [1] and roll [2] range: 0 - 360 degrees
+
+                    int screenOrient = Accu.getmContext().getResources().getConfiguration().orientation;
+                    Display display = ((WindowManager) Accu.getmContext().getSystemService(Activity.WINDOW_SERVICE)).getDefaultDisplay();
+                    int screenRotation = display.getRotation();
+                    Log.i("screenOrient",String.valueOf(screenOrient));//1 portrait 2landscape
+                    Log.i("screenRotation",String.valueOf(screenRotation));//1 left 3 right 0 portrait
+
                     azimuth = orientation[0];
                     pitch = orientation[1];
                     roll = orientation[2];

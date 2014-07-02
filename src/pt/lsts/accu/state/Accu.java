@@ -27,6 +27,11 @@ public class Accu {
     private static final String TAG = "ACCU";
 
     private static Context mContext;
+
+    public static Context getmContext() {
+        return mContext;
+    }
+
     private static Accu instance;
     private static Sys activeSys;
 
