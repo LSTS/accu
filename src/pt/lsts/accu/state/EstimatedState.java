@@ -181,6 +181,23 @@ public class EstimatedState {
                     azimuth = orientation[0];
                     pitch = orientation[1];
                     roll = orientation[2];
+
+                    double azimuthDegrees = Math.toDegrees(azimuth);
+
+                    if (screenOrient==2 ){//Adjust to Screen Orientation/Rotation
+                        if (screenRotation == 1){
+                            azimuthDegrees += 90;
+                        }
+                        else if (screenRotation ==3){
+                            azimuthDegrees -= 90;
+                        }else{
+                            Log.e("screenRotation","Not 1 Nor 3");
+                        }
+                    }
+
+                    azimuthDegrees += 10;//Correction
+                    azimuth = (float) Math.toRadians(azimuthDegrees);
+
                 }
             }
         }
