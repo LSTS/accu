@@ -24,7 +24,7 @@ import java.util.List;
 public class EstimatedState {
     public static final String TAG = "EstimatedState";
     public static final int PORT = 30100;
-    public static final long DELAY = 2500; // 2.5 seconds
+    public static final long DELAY = 500; // 0.5 seconds
     public static final boolean DEBUG = false;
     public boolean sensorsAvailable;// Accelerometer AND Magnetometer Availible in device
 
