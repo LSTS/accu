@@ -35,6 +35,7 @@ public class EstimatedState {
     private int gpsAddListenerCounter = 0;
     private GPSManager gpsManager; // = Accu.getInstance().getGpsManager();
     private Location currentLocation;
+    private double gpsBearingValue =0.0;
 
     private SensorManager sensorManager;
     private Sensor sensorMagnetic;
@@ -248,6 +249,18 @@ public class EstimatedState {
     }
 
     private void updateHeadingGPSbearing() {
+
+        if (gpsManager == null) {
+            Log.e("GPS Heading", "gpsManager==null");
+            return;
+        }
+        if (currentLocation != null & currentLocation.hasBearing() ){
+            gpsBearingValue = Math.toRadians(MUtil.nomalizeAngleDegrees180(currentLocation.getBearing()));
+
+            imcMessage.setValue("phi",gpsBearingValue);
+        }else{
+            Log.e("GPS Heading","currentLocation==null || Bearing not available");
+        }
 
     }
 
