@@ -196,7 +196,7 @@ public class EstimatedState {
                         }
                     }
 
-                    azimuthDegrees += 10;//Correction
+                    //azimuthDegrees += 10;//Correction
                     azimuth = (float) Math.toRadians(azimuthDegrees);
 
                 }
