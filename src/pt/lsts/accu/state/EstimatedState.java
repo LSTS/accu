@@ -243,9 +243,9 @@ public class EstimatedState {
 
     private void updateHeadingAceMagn() {
         //put values in IMCMessage, global values updated with listener
-        imcMessage.setValue("phi", azimuth);
+        imcMessage.setValue("phi", roll);
         imcMessage.setValue("theta", pitch);
-        imcMessage.setValue("psi", roll);
+        imcMessage.setValue("psi", azimuth);
     }
 
     private void updateHeadingGPSbearing() {
@@ -257,7 +257,7 @@ public class EstimatedState {
         if (currentLocation != null & currentLocation.hasBearing() ){
             gpsBearingValue = Math.toRadians(MUtil.nomalizeAngleDegrees180(currentLocation.getBearing()));
 
-            imcMessage.setValue("phi",gpsBearingValue);
+            imcMessage.setValue("psi",gpsBearingValue);
         }else{
             Log.e("GPS Heading","currentLocation==null || Bearing not available");
         }
