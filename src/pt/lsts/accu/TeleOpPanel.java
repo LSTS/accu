@@ -155,7 +155,10 @@ implements IMCSubscriber, PadEventListener
                     "PlanControl", "type", "REQUEST", "op", "START", "request_id",
                     reqId, "plan_id", "teleoperation-mode", 
                     "flags", 0, "arg", teleoperationMsg);
-            imm.sendToActiveSys(msg);
+            while(teleop==false){
+                imm.sendToActiveSys(msg);
+                wait(1);
+            }
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
