@@ -157,7 +157,7 @@ implements IMCSubscriber, PadEventListener
                     "flags", 0, "arg", teleoperationMsg);
             while(teleop==false){
                 imm.sendToActiveSys(msg);
-                wait(1);
+                wait(700);
             }
 		} catch (Exception e) {
 			e.printStackTrace();
