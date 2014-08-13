@@ -24,7 +24,7 @@ import java.util.List;
 public class EstimatedState {
     public static final String TAG = "EstimatedState";
     public static final int PORT = 30100;
-    public static final long DELAY = 500; // 0.5 seconds
+    public static final long DELAY = 1500; // 1.5 seconds
     public static final boolean DEBUG = false;
     public boolean sensorsAvailable;// Accelerometer AND Magnetometer Availible in device
 
@@ -40,7 +40,20 @@ public class EstimatedState {
     private SensorManager sensorManager;
     private Sensor sensorMagnetic;
     private Sensor sensorAccelerometer;
-    private float azimuth, pitch, roll;//values from Ace/Magn
+
+    //values from Ace/Magn
+    private float azimuth=-1;
+    private float pitch=-1;
+    private float roll=-1;
+
+    private final int N = 100;//number of values to make statistic average
+    private boolean initBoolean = false;//arrays initilizalized
+    private boolean outlier = false;//outlier last reading
+    private int index =0;
+    private float[] azimuthArray = new float [N];
+    private float[] pitchArray = new float [N];
+    private float[] rollArray = new float [N];
+
 
     public EstimatedState(IMCManager imm) {
         this.imm = imm;
@@ -179,11 +192,28 @@ public class EstimatedState {
                     Log.i("screenOrient",String.valueOf(screenOrient));//1 portrait 2landscape
                     Log.i("screenRotation",String.valueOf(screenRotation));//1 left 3 right 0 portrait
 
-                    azimuth = orientation[0];
-                    pitch = orientation[1];
-                    roll = orientation[2];
 
-                    double azimuthDegrees = Math.toDegrees(azimuth);
+                    if ( azimuth!=-1 && pitch!=-1 && roll!=-1 && outlier==false){//not first value
+                        //exclude outliers
+                        outlier = true;
+                        if (orientation[0]<(azimuthArray[index]-0.35))
+                            return;
+                        if (orientation[0]>(azimuthArray[index]+0.35))
+                            return;
+                        if (orientation[1]>(pitchArray[index]+0.35))
+                            return;
+                        if (orientation[1]<(pitchArray[index]-0.35))
+                            return;
+                        if (orientation[2]<(rollArray[index]-0.35))
+                            return;
+                        if (orientation[2]>(rollArray[index]+0.35))
+                            return;
+                        outlier=false;
+                    }
+                    else
+                        outlier=false;
+
+                    double azimuthDegrees = Math.toDegrees(orientation[0]);
 
                     if (screenOrient==2 ){//Adjust to Screen Orientation/Rotation
                         if (screenRotation == 1){
@@ -196,8 +226,15 @@ public class EstimatedState {
                         }
                     }
 
-                    //azimuthDegrees += 10;//Correction
-                    azimuth = (float) Math.toRadians(azimuthDegrees);
+                    pitchArray[index] = orientation[1];
+                    rollArray[index] = orientation[2];
+                    azimuthArray[index] = (float) Math.toRadians(azimuthDegrees);
+
+                    index++;
+                    if (index==N){
+                        initBoolean=true;
+                        index=0;
+                    }
 
                 }
             }
@@ -243,9 +280,36 @@ public class EstimatedState {
 
     private void updateHeadingAceMagn() {
         //put values in IMCMessage, global values updated with listener
+        calcAvg();
         imcMessage.setValue("phi", roll);
         imcMessage.setValue("theta", pitch);
         imcMessage.setValue("psi", azimuth);
+    }
+
+    private void calcAvg(){
+
+        int n = N;
+        if (initBoolean==false) {
+            n = index;
+        }
+        azimuth =0;
+        pitch=0;
+        roll=0;
+        for (int i=0;i<n;i++){
+            azimuth += azimuthArray[i];
+            pitch += pitchArray[i];
+            roll += rollArray[i];
+        }
+
+        roll=roll/n;
+        double rolldeg = Math.toDegrees((double)roll);
+        azimuth = azimuth/n;
+        pitch=pitch/n;
+
+        imcMessage.setValue("phi", roll);
+        imcMessage.setValue("theta", pitch);
+        imcMessage.setValue("psi", azimuth);
+
     }
 
     private void updateHeadingGPSbearing() {
