@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class AboutPanel extends AccuBasePanel
 {
-    public AboutPanel(Context context) 
+    public AboutPanel(Context context)
     {
         super(context);
     }
@@ -26,26 +26,26 @@ public class AboutPanel extends AccuBasePanel
         TextView lab = (TextView)getLayout().findViewWithTag("lab");
 
         title.setText(Html.fromHtml(html));
-        version.setText("Version: 1.3 Date: 14-Ago-2014 IMC version: " + IMCDefinition.getInstance().getVersion());
+        version.setText("Version: 1.3.1 Date: 02-SEP-2014 IMC version: " + IMCDefinition.getInstance().getVersion());
         authors.setText("Author: José Quadrado Correia");
         contributors.setText("Contributors: José Pinto, Hugo Queirós, Paulo Dias, José Loureiro");
         lab.setText("© Laboratório Sistemas e Tecnologias Subaquáticas");
     }
 
     @Override
-    public void onStop() 
+    public void onStop()
     {
     }
 
     @Override
-    public View buildLayout() 
+    public View buildLayout()
     {
         View v = inflateFromResource(R.layout.about_layout);
         return v;
     }
 
     @Override
-    public int getIcon() 
+    public int getIcon()
     {
         return R.drawable.icon;
     }
