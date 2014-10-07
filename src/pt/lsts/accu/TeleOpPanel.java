@@ -21,6 +21,7 @@ import pt.lsts.accu.util.CoordUtil;
 import pt.lsts.accu.util.MUtil;
 import pt.lsts.imc.IMCDefinition;
 import pt.lsts.imc.IMCMessage;
+import pt.lsts.imc.TeleoperationDone;
 import pt.lsts.accu.R;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -171,8 +172,11 @@ implements IMCSubscriber, PadEventListener
 		timer.stop();
 		IMCMessage msg;
 		try {
-			msg = IMCDefinition.getInstance().create("TeleOperationDone");
-			imm.send(activeS.getAddress(), activeS.getPort(), msg);
+			msg = new TeleoperationDone();
+			while(teleop==true){
+				imm.send(activeS.getAddress(), activeS.getPort(), msg);
+                wait(700);
+            }
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
