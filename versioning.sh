@@ -1,6 +1,6 @@
 #/bin/bash
 
-echo "Auto Version: `pwd`"
+#echo "Auto Version: `pwd`"
 
 CODE=`git tag | grep -c ^v[0-9]`
 NAME=`git describe --dirty | sed -e 's/^v//'`
@@ -16,8 +16,8 @@ else
     VERSION="${NAME}${BRANCH}"
 fi
 
-echo "   Code: ${CODE}"
-echo "   Ver:  ${VERSION}"
+#echo "   Code: ${CODE}"
+#echo "   Ver:  ${VERSION}"
 
 cat ./AndroidManifest.xml | \
     sed -e "s/android:versionCode=\"[0-9][0-9]*\"/android:versionCode=\"${CODE}\"/" \
