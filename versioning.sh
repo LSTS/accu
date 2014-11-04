@@ -29,12 +29,8 @@ cat ./src/pt/lsts/accu/AboutPanel.java | \
 		-e "s/String dateString = \".*\";/String dateString = \"${DATE}\";/" \
 	> ./bin/AboutPanel.java
 
-rm AndroidManifest.xml
 cp bin/AndroidManifest.xml AndroidManifest.xml
-rm bin/AndroidManifest.xml
 
-rm ./src/pt/lsts/accu/AboutPanel.java
 cp ./bin/AboutPanel.java ./src/pt/lsts/accu/AboutPanel.java
-rm ./bin/AboutPanel.java
 
 exit 0
