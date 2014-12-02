@@ -35,22 +35,25 @@ public class IMCUtils {
 	 */
 	public static String[] getAnnounceIMCAddressPort(IMCMessage msg)
 	{
-		for(String s: getAnnounceService(msg,"imc+udp"))
-		{
+		String res[]=null;
+		for (String s : getAnnounceService(msg, "imc+udp")) {
 			try {
-				if(InetAddress.getByName(s.split(":")[0]).isReachable(50))
-				{
-					String foo[] = s.split(":");
-					String res[] = { foo[0], foo[1].substring(0, foo[1].length()-1)};
-					return res;
+				String foo[] = s.split(":");
+				res=new String[2];
+				res[0] = foo[0];
+				res[1] = foo[1].substring(0, foo[1].length() - 1);
+				res[1] = res[1].split("/")[0];//remove services after port
+				if (InetAddress.getByName(s.split(":")[0]).isReachable(50)) {
+					return res;//return first reachable
 				}
+				
 			} catch (UnknownHostException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
-		return null;
+		}		
+		return res;//none reachable, return last one
 	}
 
 	

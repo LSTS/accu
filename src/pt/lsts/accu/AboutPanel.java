@@ -26,8 +26,8 @@ public class AboutPanel extends AccuBasePanel
         TextView lab = (TextView)getLayout().findViewWithTag("lab");
 
         title.setText(Html.fromHtml(html));
-        String versionString = "1.3.5 (master)";
-        String dateString = "05-11-2014";
+        String versionString = "1.3.5-1-g694689f-dirty (master)";
+        String dateString = "02-12-2014";
         version.setText("Version: "+versionString+"\n"+"Date: "+dateString+"\n"+"IMC version: " + IMCDefinition.getInstance().getVersion());
         authors.setText("Author: José Quadrado Correia");
         contributors.setText("Contributors: José Pinto, Hugo Queirós, Paulo Dias, José Loureiro");

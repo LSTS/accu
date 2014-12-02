@@ -7,6 +7,7 @@ import pt.lsts.accu.msg.IMCSubscriber;
 import pt.lsts.accu.msg.IMCUtils;
 import pt.lsts.accu.types.Sys;
 import pt.lsts.accu.util.AccuTimer;
+import pt.lsts.imc.Announce;
 import pt.lsts.imc.IMCDefinition;
 import pt.lsts.imc.IMCMessage;
 import android.util.Log;
@@ -144,7 +145,7 @@ public class SystemList implements IMCSubscriber{
 			String[] addrAndPort = IMCUtils.getAnnounceIMCAddressPort(msg);
 			if(addrAndPort==null)
 			{
-				Log.e(TAG,"Unreachable System - " + msg.getString("sys_name"));
+				Log.e(TAG, "No Announce Services - " + msg.getSourceName());
 				return;
 			}
 			// If Not include it
