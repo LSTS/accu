@@ -19,9 +19,12 @@ import pt.lsts.accu.types.Sys;
 import pt.lsts.accu.util.AccuTimer;
 import pt.lsts.accu.util.CoordUtil;
 import pt.lsts.accu.util.MUtil;
+import pt.lsts.imc.EstimatedState;
 import pt.lsts.imc.IMCDefinition;
 import pt.lsts.imc.IMCMessage;
+import pt.lsts.imc.RemoteActionsRequest;
 import pt.lsts.imc.TeleoperationDone;
+import pt.lsts.imc.VehicleState;
 import pt.lsts.accu.R;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -223,6 +226,7 @@ implements IMCSubscriber, PadEventListener
 	{
 		if(IMCUtils.isMsgFromActive(msg))
 		{
+			final int ID_MSG = msg.getMgid();
 			// Fill the PadTextField components on controlpad
 			for(PadTextField ptf : textFields)
 			{
@@ -232,7 +236,7 @@ implements IMCSubscriber, PadEventListener
 				}
 			}
 			
-			if(msg.getAbbrev().equalsIgnoreCase("RemoteActionsRequest"))
+			if(ID_MSG == RemoteActionsRequest.ID_STATIC)
 			{
 				actions = parseActions(msg.getString("actions"));
 //				mapActions();
@@ -244,7 +248,7 @@ implements IMCSubscriber, PadEventListener
 			}	
 			
 			// For now EstimatedState is hard-coded since it needs some processing
-			if(msg.getAbbrev().equalsIgnoreCase("EstimatedState"))
+			if(ID_MSG == EstimatedState.ID_STATIC)
 			{
 				double vx = msg.getDouble("vx");
 				double vy = msg.getDouble("vy");
@@ -253,7 +257,7 @@ implements IMCSubscriber, PadEventListener
 				((TextView)getLayout().findViewWithTag("speed")).setText(MUtil.roundn(speed, 2)+" Knot");
 			}
 			
-			if(msg.getAbbrev().equalsIgnoreCase("VehicleState"))
+			if(ID_MSG == VehicleState.ID_STATIC)
 			{
 				if(msg.getString("op_mode").equalsIgnoreCase("maneuver")
 					&& msg.getInteger("maneuver_type")==teleopid)
