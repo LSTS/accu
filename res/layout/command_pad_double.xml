@@ -4,14 +4,48 @@
     android:layout_height="match_parent"
     android:gravity="right"
     android:orientation="horizontal" >
+	
+    
+    <FrameLayout
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
     <pt.lsts.accu.components.controlpad.JoystickPad
         android:id="@+id/joystickPad01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginBottom="40dp"
         axisYaction="Thrust"
         android:tag="joy1" >
+
     </pt.lsts.accu.components.controlpad.JoystickPad>
+    
+    <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="20dp"
+                android:paddingLeft="10dip"
+                android:tag="speed"
+                android:textSize="12sp" >
+            </TextView>
+
+            <pt.lsts.accu.components.controlpad.PadTextField
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="3dp"
+                android:paddingLeft="10dip"
+                field="value"
+                message="Rpm"
+                units=""
+                android:textSize="12sp" >
+            </pt.lsts.accu.components.controlpad.PadTextField>
+    
+    </FrameLayout>
+    
 
     <LinearLayout
         android:layout_width="match_parent"
