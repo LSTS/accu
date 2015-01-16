@@ -62,15 +62,6 @@
             android:tag="joy2" >
         </pt.lsts.accu.components.controlpad.JoystickPad>
 
-        <pt.lsts.accu.components.controlpad.PadButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|left"
-                action="Stop"
-                android:tag="btn4"
-                android:text="@string/control_stop"
-                android:textSize="12sp" />
-        
         <pt.lsts.accu.components.controlpad.TeleOpToggle
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
