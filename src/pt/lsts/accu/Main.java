@@ -7,12 +7,15 @@ import pt.lsts.accu.panel.AccuPanelContainer;
 import pt.lsts.accu.state.Accu;
 import pt.lsts.accu.R;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.maps.MapActivity;
 
@@ -57,6 +60,11 @@ public class Main extends MapActivity
         	Accu.getInstance().start();
         
         setContentView(R.layout.main2);
+        
+        //Check if is connected to a network, if not popups a informative toast
+        if (!isConnectedToNetwork(this)) {
+            toast("Not connected to a network.");
+        }
        
         container = (AccuPanelContainer)findViewById(R.id.container);
         
@@ -162,5 +170,25 @@ public class Main extends MapActivity
     	Log.i(TAG, Main.class.getSimpleName() + ": onOptionsItemSelected");
 		container.getCurrentPanel().menuHandler(item);
 		return true;
+	}
+	
+	public static boolean isConnectedToNetwork(Context context) {
+	    try {
+	        ConnectivityManager nConManager = (ConnectivityManager) context
+	                .getSystemService(Context.CONNECTIVITY_SERVICE);
+	        if (nConManager != null) {
+	            NetworkInfo nNetworkinfo = nConManager.getActiveNetworkInfo();
+
+	            if (nNetworkinfo != null) {
+	                return nNetworkinfo.isConnected();
+	            }
+	        }
+	    } catch (Exception e) {
+	    }
+	    return false;
+	}
+	
+	public void toast(String message) {
+	    Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 	}
 }
