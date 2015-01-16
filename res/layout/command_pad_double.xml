@@ -5,11 +5,10 @@
     android:gravity="right"
     android:orientation="horizontal" >
 	
-    
     <FrameLayout
-            android:layout_width="wrap_content" 
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
     <pt.lsts.accu.components.controlpad.JoystickPad
         android:id="@+id/joystickPad01"
@@ -17,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top"
         android:layout_marginBottom="40dp"
-        axisYaction="Thrust"
+        axisXaction="Heading"
         android:tag="joy1" >
 
     </pt.lsts.accu.components.controlpad.JoystickPad>
@@ -59,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:layout_marginBottom="50dp"
-            axisXaction="Heading"
+            axisYaction="Thrust"
             android:tag="joy2" >
         </pt.lsts.accu.components.controlpad.JoystickPad>
 
