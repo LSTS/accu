@@ -4,16 +4,49 @@
     android:layout_height="match_parent"
     android:gravity="right"
     android:orientation="horizontal" >
+	
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
     <pt.lsts.accu.components.controlpad.JoystickPad
         android:id="@+id/joystickPad01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        axisYaction="Thrust"
+        android:layout_gravity="top"
+        android:layout_marginBottom="40dp"
+        axisXaction="Heading"
         android:tag="joy1" >
-    </pt.lsts.accu.components.controlpad.JoystickPad>
 
-    <LinearLayout
+    </pt.lsts.accu.components.controlpad.JoystickPad>
+    
+    <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="20dp"
+                android:paddingLeft="10dip"
+                android:tag="speed"
+                android:textSize="12sp" >
+            </TextView>
+
+            <pt.lsts.accu.components.controlpad.PadTextField
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="3dp"
+                android:paddingLeft="10dip"
+                field="value"
+                message="Rpm"
+                units=""
+                android:textSize="12sp" >
+            </pt.lsts.accu.components.controlpad.PadTextField>
+    
+    </FrameLayout>
+    
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
@@ -23,14 +56,17 @@
             android:id="@+id/joystickPad02"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            axisXaction="Heading"
+            android:layout_gravity="top"
+            android:layout_marginBottom="50dp"
+            axisYaction="Thrust"
             android:tag="joy2" >
         </pt.lsts.accu.components.controlpad.JoystickPad>
 
         <pt.lsts.accu.components.controlpad.TeleOpToggle
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
             android:tag="btn1" />
-    </LinearLayout>
+    </FrameLayout>
 
 </LinearLayout>

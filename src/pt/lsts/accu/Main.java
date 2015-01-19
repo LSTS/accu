@@ -57,7 +57,7 @@ public class Main extends MapActivity
         	Accu.getInstance().start();
         
         setContentView(R.layout.main2);
-       
+        
         container = (AccuPanelContainer)findViewById(R.id.container);
         
         // Load/Process configuration panel
@@ -163,4 +163,5 @@ public class Main extends MapActivity
 		container.getCurrentPanel().menuHandler(item);
 		return true;
 	}
+	
 }
