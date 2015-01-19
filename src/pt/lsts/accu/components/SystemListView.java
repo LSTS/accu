@@ -83,6 +83,11 @@ SystemListChangeListener, android.widget.AdapterView.OnItemClickListener
 	}
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		Toast.makeText(context, "Long-press to select active System", 3000).show();
+        Toast.makeText(context, "Long-press to select active System", Toast.LENGTH_SHORT).show();
+        SystemListAdapter systemListAdapter =((SystemListAdapter) this.getAdapter());
+        if (systemListAdapter.getItemPressed()==arg2)
+            systemListAdapter.setItemPressed(-1);
+        systemListAdapter.setItemPressed(arg2);
+        systemListAdapter.notifyDataSetChanged();
 	}
 }
