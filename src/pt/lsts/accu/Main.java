@@ -177,10 +177,9 @@ public class Main extends MapActivity {
 			ConnectivityManager nConManager = (ConnectivityManager) context
 					.getSystemService(Context.CONNECTIVITY_SERVICE);
 			if (nConManager != null) {
-				NetworkInfo nNetworkinfo = nConManager.getActiveNetworkInfo();
+				NetworkInfo nNetworkinfo = nConManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 				if (nNetworkinfo.isConnected()) {
 					haveConnectedWifi=true;
-					//return nNetworkinfo.isConnected();
 					return haveConnectedWifi;
 				}
 			}
