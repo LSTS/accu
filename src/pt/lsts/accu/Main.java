@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import pt.lsts.accu.console.ConsoleConfig;
 import pt.lsts.accu.panel.AccuPanelContainer;
 import pt.lsts.accu.state.Accu;
+import pt.lsts.accu.util.AccuTimer;
 import pt.lsts.accu.R;
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -41,6 +42,17 @@ public class Main extends MapActivity {
 	private PowerManager.WakeLock wl;
 
 	private static boolean haveConnectedWifi;
+	//Set a timer to check if is connected to a Wifi Network every 5 sec 
+	AccuTimer timer = new AccuTimer(new Runnable() {
+		@Override
+		public void run() {
+			// Check if is connected to a Wifi Network, if not popups a informative toast
+			if (!isConnectedToWifi(Main.this)) {
+				toast("Not connected to a network.");
+			}
+		}
+
+	}, 5000);
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -61,11 +73,6 @@ public class Main extends MapActivity {
 			Accu.getInstance().start();
 
 		setContentView(R.layout.main2);
-
-		// Check if is connected to a network, if not popups a informative toast
-		if (!isConnectedToNetwork(this)) {
-			toast("Not connected to a network.");
-		}
 
 		container = (AccuPanelContainer) findViewById(R.id.container);
 
@@ -99,6 +106,7 @@ public class Main extends MapActivity {
 		Log.i(TAG, Main.class.getSimpleName() + ": onStart");
 		if (!Accu.getInstance().isStarted())
 			Accu.getInstance().start();
+			timer.start();
 		container.startPanelWithId(container.currentPanelId);
 		wl.acquire();
 	}
@@ -128,10 +136,7 @@ public class Main extends MapActivity {
 		Log.i(TAG, Main.class.getSimpleName() + ": onPause");
 		container.stopCurrentPanel();
 		Accu.getInstance().pause();
-		// Check if is connected to a network, if not popups a informative toast
-		if (!isConnectedToNetwork(this)) {
-			toast("Not connected to a network.");
-		}
+		timer.stop();
 		if (wl.isHeld())
 			wl.release();
 	}
@@ -175,7 +180,7 @@ public class Main extends MapActivity {
 		return true;
 	}
 
-	private boolean isConnectedToNetwork(Context context) {
+	private boolean isConnectedToWifi(Context context) {
 		haveConnectedWifi = false;
 		try {
 			ConnectivityManager nConManager = (ConnectivityManager) context
