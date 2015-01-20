@@ -42,7 +42,7 @@ public class Main extends MapActivity {
 	private PowerManager.WakeLock wl;
 
 	private static boolean haveConnectedWifi;
-	//Set a timer to check if is connected to a Wifi Network every 5 sec 
+	//Set a timer to check if is connected to a Wifi Network every 30 sec 
 	AccuTimer timer = new AccuTimer(new Runnable() {
 		@Override
 		public void run() {
