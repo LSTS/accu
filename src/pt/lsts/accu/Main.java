@@ -52,7 +52,7 @@ public class Main extends MapActivity {
 			}
 		}
 
-	}, 5000);
+	}, 30000);
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
