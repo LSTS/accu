@@ -128,6 +128,10 @@ public class Main extends MapActivity {
 		Log.i(TAG, Main.class.getSimpleName() + ": onPause");
 		container.stopCurrentPanel();
 		Accu.getInstance().pause();
+		// Check if is connected to a network, if not popups a informative toast
+		if (!isConnectedToNetwork(this)) {
+			toast("Not connected to a network.");
+		}
 		if (wl.isHeld())
 			wl.release();
 	}
@@ -177,9 +181,10 @@ public class Main extends MapActivity {
 			ConnectivityManager nConManager = (ConnectivityManager) context
 					.getSystemService(Context.CONNECTIVITY_SERVICE);
 			if (nConManager != null) {
-				NetworkInfo nNetworkinfo = nConManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+				NetworkInfo nNetworkinfo = nConManager
+						.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 				if (nNetworkinfo.isConnected()) {
-					haveConnectedWifi=true;
+					haveConnectedWifi = true;
 					return haveConnectedWifi;
 				}
 			}
