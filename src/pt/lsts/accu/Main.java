@@ -40,6 +40,8 @@ public class Main extends MapActivity {
 	FileInputStream configFile;
 	private PowerManager.WakeLock wl;
 
+	private static boolean haveConnectedWifi;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, Main.class.getSimpleName() + ": onCreate");
@@ -169,19 +171,22 @@ public class Main extends MapActivity {
 		return true;
 	}
 
-	public static boolean isConnectedToNetwork(Context context) {
+	private boolean isConnectedToNetwork(Context context) {
+		haveConnectedWifi = false;
 		try {
 			ConnectivityManager nConManager = (ConnectivityManager) context
 					.getSystemService(Context.CONNECTIVITY_SERVICE);
 			if (nConManager != null) {
 				NetworkInfo nNetworkinfo = nConManager.getActiveNetworkInfo();
-				if (nNetworkinfo != null) {
-					return nNetworkinfo.isConnected();
+				if (nNetworkinfo.isConnected()) {
+					haveConnectedWifi=true;
+					//return nNetworkinfo.isConnected();
+					return haveConnectedWifi;
 				}
 			}
 		} catch (Exception e) {
 		}
-		return false;
+		return haveConnectedWifi;
 	}
 
 	public void toast(String message) {
