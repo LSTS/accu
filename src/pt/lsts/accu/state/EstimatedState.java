@@ -276,7 +276,7 @@ public class EstimatedState {
         imcMessage.setValue("psi", azimuth);
     }
 
-    public void calcAvg(){
+    private void calcAvg(){
 
         int n = N;
         if (initBoolean == false) {
@@ -304,11 +304,6 @@ public class EstimatedState {
         imcMessage.setValue("phi", roll);
         imcMessage.setValue("theta", pitch);
         imcMessage.setValue("psi", azimuth);
-        
-        Log.e("roll:", String.valueOf(roll));
-        Log.e("pitch:", String.valueOf(pitch));
-        Log.e("azimuth:", String.valueOf(azimuth));
-
     }
 
     private void updateHeadingGPSbearing() {
