@@ -24,7 +24,7 @@ import java.util.List;
 public class EstimatedState {
     public static final String TAG = "EstimatedState";
     public static final int PORT = 30100;
-    public static final long DELAY = 1000; // 1.0 seconds
+    public static final long DELAY = 100; // 0.1 seconds
     public static final boolean DEBUG = false;
     public boolean sensorsAvailable;// Accelerometer AND Magnetometer Availible in device
 
@@ -46,7 +46,7 @@ public class EstimatedState {
     private float pitch = -1;
     private float roll = -1;
 
-    private final int N = 71;//number of values to make statistic average
+    private final int N = 15;//number of values to make statistic average
     private boolean initBoolean = false;//arrays initilizalized
     private boolean outlier = false;//outlier last reading
     private int index = 0;
@@ -216,25 +216,9 @@ public class EstimatedState {
                     else
                         outlier = false;
 
-                    //double azimuthDegrees = Math.toDegrees(orientation[0]);
-
-                    if (screenOrient == 2 ){//Adjust to Screen Orientation/Rotation
-                        if (screenRotation == 1){
-                            //azimuthDegrees += 90;
-                            orientation[0] += Math.PI/2;
-                        }
-                        else if (screenRotation == 3){
-                            //azimuthDegrees -= 90;
-                        	orientation[0] -= Math.PI/2;
-                        }else{
-                            Log.e("screenRotation","Not 1 Nor 3");
-                        }
-                    }
-
                     rollArray[index] = orientation[2];
                     pitchArray[index] = orientation[1];
                     azimuthArray[index] = orientation[0];
-                    //azimuthArray[index] = (float) Math.toRadians(azimuthDegrees);
 
                     index++;
                     if (index == N){
@@ -292,29 +276,38 @@ public class EstimatedState {
         imcMessage.setValue("psi", azimuth);
     }
 
-    private void calcAvg(){
+    public void calcAvg(){
 
         int n = N;
         if (initBoolean == false) {
 			n = index;
         }
-        azimuth = 0;
-        pitch = 0;
-        roll = 0;
+        float roll = 0;
+        float pitch = 0;
+        float azimuth = 0;
+        
+        
         for (int i = 0;i < n;i++){
-            azimuth += azimuthArray[i];
-            pitch += pitchArray[i];
             roll += rollArray[i];
+            pitch += pitchArray[i];
+            azimuth += azimuthArray[i];
         }
 
         roll=roll/n;
-        //double rolldeg = Math.toDegrees((double)roll);
-        azimuth = azimuth/n;
         pitch = pitch/n;
+        azimuth = azimuth/n;
 
+        this.roll=roll;
+        this.pitch=pitch;
+        this.azimuth=azimuth;
+        
         imcMessage.setValue("phi", roll);
         imcMessage.setValue("theta", pitch);
         imcMessage.setValue("psi", azimuth);
+        
+        Log.e("roll:", String.valueOf(roll));
+        Log.e("pitch:", String.valueOf(pitch));
+        Log.e("azimuth:", String.valueOf(azimuth));
 
     }
 
