@@ -1,7 +1,7 @@
 package pt.lsts.accu.types.android;
 
 import pt.lsts.accu.FinderPanel;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.app.Dialog;
 import android.content.Context;
 import android.view.View;

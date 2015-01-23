@@ -10,7 +10,7 @@ import pt.lsts.accu.panel.AccuComponent;
 import pt.lsts.accu.state.Accu;
 import pt.lsts.accu.util.LayoutUtil;
 import pt.lsts.imc.IMCMessage;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;

@@ -5,7 +5,7 @@ import pt.lsts.accu.panel.AccuAction;
 import pt.lsts.accu.panel.AccuBasePanel;
 import pt.lsts.accu.state.Accu;
 import pt.lsts.accu.util.LayoutUtil;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;

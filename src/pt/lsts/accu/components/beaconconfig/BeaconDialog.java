@@ -6,7 +6,7 @@ import pt.lsts.accu.state.GPSManager;
 import pt.lsts.accu.state.LocationChangeListener;
 import pt.lsts.accu.util.CoordUtil;
 import pt.lsts.accu.util.MUtil;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;

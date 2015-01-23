@@ -1,7 +1,7 @@
 package pt.lsts.accu;
 
 import pt.lsts.accu.panel.AccuBaseCommand;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.app.Activity;
 import android.content.Context;
 

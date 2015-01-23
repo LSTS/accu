@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import pt.lsts.accu.Main;
 import pt.lsts.accu.panel.AccuBasePanel;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.Menu;

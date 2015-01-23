@@ -1,6 +1,6 @@
 package pt.lsts.accu;
 
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 

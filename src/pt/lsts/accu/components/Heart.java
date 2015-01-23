@@ -1,6 +1,7 @@
 package pt.lsts.accu.components;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import pt.lsts.accu.msg.IMCManager;
 import pt.lsts.accu.state.Accu;
@@ -42,10 +43,12 @@ public class Heart implements SystemListChangeListener
 	}
 	public void sendHeartbeat()
 	{
-		for(Sys s: vehicleList)
+        Iterator<Sys> iterator = vehicleList.iterator();
+		while(iterator.hasNext())
 		{
-			if(DEBUG)Log.v(TAG,"Beating...");
-			imm.sendToSys(s, "HeartBeat");
+			if(DEBUG)
+                Log.v(TAG,"Beating...");
+			imm.sendToSys(iterator.next(), "HeartBeat");
 		}
 	}
 	public void updateVehicleList(ArrayList<Sys> list)

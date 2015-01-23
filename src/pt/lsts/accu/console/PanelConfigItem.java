@@ -1,7 +1,7 @@
 package pt.lsts.accu.console;
 
 import pt.lsts.accu.panel.AccuAction;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 
 
 public class PanelConfigItem implements Comparable<PanelConfigItem>

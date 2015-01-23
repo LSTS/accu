@@ -8,7 +8,7 @@ import pt.lsts.accu.panel.AccuBasePanel;
 import pt.lsts.accu.state.Accu;
 import pt.lsts.accu.types.android.SystemOverlay;
 import pt.lsts.imc.IMCDefinition;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.Log;

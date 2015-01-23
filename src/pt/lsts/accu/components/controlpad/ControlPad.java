@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 
 import pt.lsts.accu.components.interfaces.JoystickPadChangeListener;
 import pt.lsts.accu.components.interfaces.PadStateListener;
-import pt.up.fe.dceg.accu.R;
+import pt.lsts.accu.R;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
