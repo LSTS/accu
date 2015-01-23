@@ -14,6 +14,7 @@ if [ "x${COMMITS}x" = "xx" ] ; then
 else
     BRANCH=" (`git branch | grep "^\*" | sed -e 's/^..//'`)"
     VERSION="${NAME}${BRANCH}"
+    VERSION=`echo "${VERSION}" | tr '\/' '-'`
 fi
 
 #echo "   Code: ${CODE}"
