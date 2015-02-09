@@ -9,6 +9,7 @@ import pt.lsts.imc.IMCMessage;
 import pt.lsts.accu.R;
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -104,13 +105,13 @@ public class EntityListAdapter extends BaseAdapter {
 		
 		EntityStateType est=getItem(position);
 		String strState;
-
+		Log.i("EntityStateType: ", est.toString());
 		strState = est.getState() + " " + est.getDescription();
-
+		Log.i("strState: ", strState);
 //		((TextView)view.findViewWithTag("name")).setTextColor(mColors.get(est.getState()));
 		((TextView)view.findViewWithTag("name")).setText(est.getEntity());
 		
-		((TextView)view.findViewWithTag("info")).setTextColor(mColors.get(est.getState()));
+//		((TextView)view.findViewWithTag("info")).setTextColor(mColors.get(est.getState()));
 		((TextView)view.findViewWithTag("info")).setText(strState);
 
 		return view;
