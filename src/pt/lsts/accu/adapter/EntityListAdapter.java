@@ -71,31 +71,6 @@ public class EntityListAdapter extends BaseAdapter {
 		return position;
 	}
 	
-//	@Override
-//	public View getView(int position, View convertView, ViewGroup parent) {
-//		TextView tv = (TextView)convertView; 
-//		if(tv == null)
-//			tv = new TextView(context);
-//		
-//		EntityStateType est=getItem(position);
-//		String strState;
-//		
-//		if(est.getState()==null)
-//		{
-//			strState="No Information";
-//			tv.setTextColor(Color.GRAY);
-//		}
-//		else
-//		{
-//			strState = est.getState();
-//			tv.setTextColor(mColors.get(strState));
-//		}
-//		strState = strState + " " + est.getDescription();
-//		tv.setText(est.getEntity() + " " + strState);		
-//		
-//		tv.setLayoutParams(new ListView.LayoutParams(ListView.LayoutParams.WRAP_CONTENT,ListView.LayoutParams.WRAP_CONTENT));
-//		return tv;
-//	}
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		LinearLayout view = (LinearLayout)convertView; 
@@ -105,13 +80,15 @@ public class EntityListAdapter extends BaseAdapter {
 		
 		EntityStateType est=getItem(position);
 		String strState;
-		Log.i("EntityStateType: ", est.toString());
+		Log.wtf("EntityStateType: ", est.toString());
+		Log.wtf("est.getState(): ", est.getState());
 		strState = est.getState() + " " + est.getDescription();
-		Log.i("strState: ", strState);
-//		((TextView)view.findViewWithTag("name")).setTextColor(mColors.get(est.getState()));
+		Log.wtf("strState: ", strState);
+		//((TextView)view.findViewWithTag("name")).setTextColor(mColors.get(est.getState()));
 		((TextView)view.findViewWithTag("name")).setText(est.getEntity());
+		//Log.d("est.getState(): ", est.getState());
+		//((TextView)view.findViewWithTag("info")).setTextColor(mColors.get(est.getState()));
 		
-//		((TextView)view.findViewWithTag("info")).setTextColor(mColors.get(est.getState()));
 		((TextView)view.findViewWithTag("info")).setText(strState);
 
 		return view;

@@ -120,11 +120,11 @@ public class SystemListAdapter extends BaseAdapter {
         //color codes
         final String ORANGE = "FF8000";//orange
         final String RED = "FF1428";//red
-        final String GREEN = "006400";//green
+        //final String GREEN = "006400";//green
         final String BLUE = "2BB6E3";//cyan
-        final String BLUE_LIGHTER = "B5C6D8";//very light blue
+        //final String BLUE_LIGHTER = "B5C6D8";//very light blue
         final String BLUE_DARKER = "15596F";//dark blue
-        final String OLD = "253F3F";//gray
+        //final String OLD = "253F3F";//gray
         final String IDLE = "6E6E6E";//brighter gray
         final String BLACK = "#000000";//black
         final String WHITE = "#FFFFFF";//white
