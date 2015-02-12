@@ -9,7 +9,7 @@ import pt.lsts.accu.state.Accu;
 import pt.lsts.accu.state.MainSysChangeListener;
 import pt.lsts.accu.types.Sys;
 import pt.lsts.accu.util.AccuTimer;
-import pt.lsts.imc.EntityList;
+//import pt.lsts.imc.EntityList;
 import pt.lsts.imc.IMCMessage;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -58,7 +58,7 @@ public class EntityStateList extends ListView implements IMCSubscriber,
 
 	@Override
 	public void onReceive(IMCMessage msg) {
-		final int ID_MSG = msg.getMgid();
+		//final int ID_MSG = msg.getMgid();
 		// FIXME
 		// If active system doesn't exist or isn't a message from active system
 		if (Accu.getInstance().getActiveSys() == null)
@@ -67,7 +67,7 @@ public class EntityStateList extends ListView implements IMCSubscriber,
 				.getHeaderValue("src"))
 			return;
 
-		if (ID_MSG == EntityList.ID_STATIC) {
+		if (msg.getAbbrev().equalsIgnoreCase("EntityList")) {
 			if (!alreadyReceived) {
 				mAdapter = new EntityListAdapter(msg, mContext);
 				setAdapter(mAdapter);
@@ -76,7 +76,7 @@ public class EntityStateList extends ListView implements IMCSubscriber,
 			}
 		}
 
-		if (ID_MSG == EntityList.ID_STATIC) {
+		if (msg.getAbbrev().equalsIgnoreCase("EntityState")) {
 			if (mAdapter != null) {
 				mAdapter.updateState(msg);
 			}

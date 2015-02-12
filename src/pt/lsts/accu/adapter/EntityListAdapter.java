@@ -87,7 +87,7 @@ public class EntityListAdapter extends BaseAdapter {
 		//((TextView)view.findViewWithTag("name")).setTextColor(mColors.get(est.getState()));
 		((TextView)view.findViewWithTag("name")).setText(est.getEntity());
 		//Log.d("est.getState(): ", est.getState());
-		//((TextView)view.findViewWithTag("info")).setTextColor(mColors.get(est.getState()));
+		((TextView)view.findViewWithTag("info")).setTextColor(mColors.get(est.getState()));
 		
 		((TextView)view.findViewWithTag("info")).setText(strState);
 

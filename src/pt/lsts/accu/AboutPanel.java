@@ -24,8 +24,8 @@ public class AboutPanel extends AccuBasePanel {
 		TextView lab = (TextView) getLayout().findViewWithTag("lab");
 
 		title.setText(Html.fromHtml(html));
-		String versionString = "1.3.5-24-g4533163-dirty (bug3215)";
-		String dateString = "11-02-2015";
+		String versionString = "1.3.5-25-g49983d9-dirty (bug3215)";
+		String dateString = "12-02-2015";
 		version.setText("Version: " + versionString + "\n" + "Date: "
 				+ dateString + "\n" + "IMC version: "
 				+ IMCDefinition.getInstance().getVersion());
