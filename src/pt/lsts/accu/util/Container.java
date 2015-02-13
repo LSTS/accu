@@ -36,32 +36,12 @@ public class Container extends LinearLayout
 	{
 		super.onLayout(changed, l, t, r, b);
 		views = LayoutUtil.flattenLayout(this,false);
-//		Log.v("Container","Child Count " + views.size());
 		for(View foo : views)
 		{
 			Rect rect = new Rect();
 			foo.getGlobalVisibleRect(rect);
-//			Log.i("Container",foo + "- Top: " + rect.top + " Bottom: " + rect.bottom + " Left: " + rect.left+ " Right: " + rect.right);
-//			Log.v("Container",foo + "- Top: " + foo.getTop() + " Bottom: " + foo.getBottom() + " Left: " + foo.getLeft() + " Right: " + foo.getRight());
 		}
 	}
-//	ArrayList<MotionEvent> flattenEvent(MotionEvent event)
-//	{
-//		ArrayList<MotionEvent> l= new ArrayList<MotionEvent>();
-//		if(event.getPointerCount()==1)
-//		{
-//			l.add(event);
-//			return l;
-//		}
-//		else
-//		for(int i = 0; i < event.getPointerCount();i++)
-//		{
-//			MotionEvent e = MotionEvent.obtain(event);
-//			e.setLocation(event.getX(i), event.getY(i));
-//			l.add(e);
-//		}
-//		return l;
-//	}
 	
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent event)
@@ -71,7 +51,6 @@ public class Container extends LinearLayout
 	@Override
 	public boolean onTouchEvent(MotionEvent event)
 	{
-//		dumpEvent(event);
 		int action = event.getAction() & MotionEvent.ACTION_MASK;
 		if(action==MotionEvent.ACTION_DOWN)
 		{
