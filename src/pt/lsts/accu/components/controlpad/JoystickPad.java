@@ -75,12 +75,7 @@ public class JoystickPad extends View {
     }
 
     private void initialize() {
-	// bitmap = Bitmap.createBitmap(200, 200, Bitmap.Config.ARGB_8888);
-	// dc = new Canvas(bitmap);
-	// p = new Paint();
-	//
-	// p.setColor(Color.GREEN);
-	// p.setStrokeWidth(5);
+
 	p = new Paint();
 	p.setFlags(Paint.ANTI_ALIAS_FLAG);
 	axisX = 0;
@@ -151,7 +146,7 @@ public class JoystickPad extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-	// System.out.println("pad: "+event.getX()+ " "+event.getY());
+
 	if (event.getAction() == MotionEvent.ACTION_DOWN) {
 
 	}
@@ -162,11 +157,7 @@ public class JoystickPad extends View {
 		    - pos[1]);
 	    axisX = (int) res[0];
 	    axisY = (int) res[1];
-	    //	    System.out.println("x : " + (event.getX() - getLeft()) + " y: "
-	    //		    + (event.getY() - getTop()) + "top: " + getTop() + "left: "
-	    //		    + getLeft());
-	    //	    System.out.println("rx : " + event.getRawX() + " ry: "
-	    //		    + event.getRawY());
+
 	    Log.i(TAG, "x : " + (event.getX() - getLeft()) + " y: " + (event.getY() - getTop()) + "top: " + getTop() + "left: " + getLeft());
 	}
 	if (event.getAction() == MotionEvent.ACTION_UP) {
