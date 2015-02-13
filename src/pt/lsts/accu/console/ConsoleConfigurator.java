@@ -34,8 +34,6 @@ public class ConsoleConfigurator extends AccuBasePanel implements DropListener, 
 		dragList = (DragNDropListView) getLayout().findViewWithTag("draglist");
 		dragList.setDropListener(this);
 		dragList.setOnItemClickListener(this);
-//		dragList.setClickable(true);
-//		dragList.setFocusable(false);
 		dragList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 		
 	}
@@ -120,8 +118,6 @@ public class ConsoleConfigurator extends AccuBasePanel implements DropListener, 
 	{
 		System.out.println(from + " " + to);
 		((DragNDropAdapter)dragList.getAdapter()).onDrop(from, to);
-//		for(PanelConfigItem pci : panelList)
-//			System.out.println(pci.getName());
 		dragList.invalidateViews();
 	}
 
