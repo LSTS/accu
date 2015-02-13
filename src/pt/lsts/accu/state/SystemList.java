@@ -68,52 +68,6 @@ public class SystemList implements IMCSubscriber {
 			return;
 		}
 
-		// Process Estimated State
-		// Store Position Information
-		// COMMENTED FOR NOW, WE DONT NEED THIS INFO TO BE GLOBAL
-
-		// if(msg.getAbbrevName().equalsIgnoreCase("EstimatedState"))
-		// {
-		// Sys sys = findSysById((Integer)msg.getHeaderValue("src"));
-		//
-		// if(sys!=null) // Safeguard some rogue message of a system that doesnt
-		// exist
-		// {
-		// String ref = msg.getString("ref");
-		// sys.setRefMode(ref);
-		// double[] rpy =
-		// {msg.getDouble("phi"),msg.getDouble("theta"),msg.getDouble("psi")};
-		// sys.setRPY(rpy);
-		// if(ref.equalsIgnoreCase("LLD_ONLY"))
-		// {
-		// double[] ned = {0.0,0.0,0.0};
-		// double[] lld =
-		// {msg.getDouble("lat"),msg.getDouble("lon"),msg.getDouble("depth")};
-		// sys.setLLD(lld);
-		// sys.setNED(ned);
-		// }
-		// if(ref.equalsIgnoreCase("NED_ONLY"))
-		// {
-		// double[] ned =
-		// {msg.getDouble("x"),msg.getDouble("y"),msg.getDouble("z")};
-		// double[] lld = {0.0,0.0,0.0};
-		// sys.setLLD(lld);
-		// sys.setNED(ned);
-		// }
-		// if(ref.equalsIgnoreCase("NED_LLD"))
-		// {
-		// double[] ned =
-		// {msg.getDouble("x"),msg.getDouble("y"),msg.getDouble("z")};
-		// double[] lld =
-		// {msg.getDouble("lat"),msg.getDouble("lon"),msg.getDouble("depth")};
-		// sys.setLLD(lld);
-		// sys.setNED(ned);
-		// }
-		// if(DEBUG)Log.i("Log","Name : " + sys.getName() + " lat " +
-		// sys.getLLD()[1] + " x " + sys.getNED()[1]); // Simple debug message
-		// }
-		// }
-
 		// Process Announce routine
 		if (ID_MSG == Announce.ID_STATIC) {
 			Announce announce = (Announce) msg;
