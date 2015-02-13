@@ -5,20 +5,6 @@
     android:gravity="right"
     android:orientation="vertical" >
 
-    <!--
-       	<pt.up.fe.dceg.accu.components.controlpad.PadButton android:text="SetRemoteOn"
- 	android:layout_width="wrap_content" android:layout_height="wrap_content" android:tag="btn1"/>
- 	<LinearLayout
-	  android:layout_width="wrap_content"
-  	  android:layout_height="wrap_content"
-  	  android:orientation="vertical">
-  	   	<pt.up.fe.dceg.accu.components.controlpad.PadButton android:text="SetRemoteOFF"
- 	android:layout_width="wrap_content" android:layout_height="wrap_content" android:tag="btn1"/>
- 	</LinearLayout>
- 	<pt.up.fe.dceg.accu.components.controlpad.PadButton android:text="SetRemotewhatebs"
- 	android:layout_width="wrap_content" android:layout_height="wrap_content" android:tag="btn1"/>
-    -->
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
