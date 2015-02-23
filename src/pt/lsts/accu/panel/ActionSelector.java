@@ -38,7 +38,6 @@ implements OnItemClickListener, OnClickListener, MainSysChangeListener{
 	ColorMatrixColorFilter defaultFilter; // For 'disabling' buttons
 	ColorMatrixColorFilter disabledFilter; // For 'disabling' buttons
 	private int selectedPanelColor = Color.parseColor("#ff9900"); // Color for selected panel icon background
-//	private int defaultPanelColor = Color.parseColor("#DD000000");
 	Toast toast;
 	public BaseAdapter adapter = new BaseAdapter(){
 		
