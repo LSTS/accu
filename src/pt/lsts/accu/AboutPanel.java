@@ -24,14 +24,14 @@ public class AboutPanel extends AccuBasePanel {
 		TextView lab = (TextView) getLayout().findViewWithTag("lab");
 
 		title.setText(Html.fromHtml(html));
-		String versionString = "1.3.5-38-g1835be4-dirty (icons3220)";
+		String versionString = "1.3.5-39-g84db920-dirty (icons3220)";
 		String dateString = "23-02-2015";
 		version.setText("Version: " + versionString + "\n" + "Date: "
 				+ dateString + "\n" + "IMC version: "
 				+ IMCDefinition.getInstance().getVersion());
 		authors.setText("Author: José Quadrado Correia");
 		contributors
-				.setText("Contributors: José Pinto, Hugo Queirós, Paulo Dias, José Loureiro");
+				.setText("Contributors: José Pinto, Hugo Queirós, Paulo Dias, José Loureiro, \n Mauro Brandão");
 		lab.setText("© Laboratório Sistemas e Tecnologias Subaquáticas");
 	}
 
