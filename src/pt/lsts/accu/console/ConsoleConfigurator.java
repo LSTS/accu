@@ -6,6 +6,7 @@ import pt.lsts.accu.Main;
 import pt.lsts.accu.panel.AccuBasePanel;
 import pt.lsts.accu.R;
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,8 +35,6 @@ public class ConsoleConfigurator extends AccuBasePanel implements DropListener, 
 		dragList = (DragNDropListView) getLayout().findViewWithTag("draglist");
 		dragList.setDropListener(this);
 		dragList.setOnItemClickListener(this);
-//		dragList.setClickable(true);
-//		dragList.setFocusable(false);
 		dragList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 		
 	}
@@ -51,10 +50,18 @@ public class ConsoleConfigurator extends AccuBasePanel implements DropListener, 
 				View v = convertView;
 				if(v == null)
 					v = LayoutInflater.from(getContext()).inflate(R.layout.dragitem, null);
-				((TextView)v.findViewWithTag("name")).setText(pci.getName());
-				((ImageView)v.findViewWithTag("icon")).setImageResource(pci.getIcon());
+				
+				ImageView icon = ((ImageView)v.findViewWithTag("icon"));
+				icon.setImageResource(pci.getIcon());
+				
+				TextView name = ((TextView)v.findViewWithTag("name"));
+				name.setText(pci.getName());
+				name.setGravity(Gravity.LEFT);
+				
 				CheckBox cb = ((CheckBox)v.findViewWithTag("check"));
 				cb.setChecked(pci.active);
+				cb.setGravity(Gravity.RIGHT);
+				//cb.setPadding(v.getWidth()-(icon.getWidth()+name.getWidth()+cb.getWidth()), 0, 0, 0);
 				cb.setOnClickListener(new OnClickListener() {
 					
 					@Override
@@ -120,8 +127,6 @@ public class ConsoleConfigurator extends AccuBasePanel implements DropListener, 
 	{
 		System.out.println(from + " " + to);
 		((DragNDropAdapter)dragList.getAdapter()).onDrop(from, to);
-//		for(PanelConfigItem pci : panelList)
-//			System.out.println(pci.getName());
 		dragList.invalidateViews();
 	}
 

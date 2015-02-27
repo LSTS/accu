@@ -34,11 +34,9 @@ public class SensorPad extends JoystickPad implements SensorEventListener {
 		{
 			float tilt = event.values[index];
 			int currentTilt;
-//			System.out.println(e.values[0]+" "+e.values[1]+" "+e.values[2]);
 			if(tilt < -90) tilt =  -90;
 			if(tilt > 90) tilt =  90;
 			currentTilt = (int) ((int)tilt*(127/90f));
-//			System.out.println((positive ? currentTilt : -currentTilt));
 			System.out.println(positive);
 			listener.onJoystickPadChange(this, (positive ? currentTilt : -currentTilt) ,0);
 		}

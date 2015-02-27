@@ -147,7 +147,6 @@ public class IMCManager implements MessageListener<MessageInfo, IMCMessage>
 		{
 			e.printStackTrace();
 			Log.e("ERROR","ERROR IN MESSAGE PROCESSING, IGNORING MESSAGE: "+e.getMessage());
-//			Log.e("ERROR",message.toString());
 			return;
 		}
 	}
@@ -179,9 +178,6 @@ public class IMCManager implements MessageListener<MessageInfo, IMCMessage>
 			comm.stop();
 			announceListener = null;
 			comm = null;
-
-//			subscribers.clear();
-
 			commActive = false;
 		}
 	}

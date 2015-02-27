@@ -28,7 +28,7 @@ implements PanelItemClickListener
 		selector = (ActionSelector) findViewById(R.id.selector);
 		selector.setList(actionList);
 		selector.setPanelChangeListener(this);
-//		setKeepScreenOn(true);
+
 	}
 	public void addAction(AccuBaseAction action)
 	{
@@ -88,7 +88,6 @@ implements PanelItemClickListener
 	{
 		if(actionList.size()!=0)
 		{
-//			stopCurrentPanel();
 			actionList.clear();
 		}
 	}

@@ -23,19 +23,19 @@ import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
 import pt.lsts.accu.AboutPanel;
-import pt.lsts.accu.BeaconCfgPanel;
+//import pt.lsts.accu.BeaconCfgPanel;
 import pt.lsts.accu.EntityListPanel;
-import pt.lsts.accu.FinderPanel;
-import pt.lsts.accu.HeadingTestPanel;
-import pt.lsts.accu.MapPanel;
-import pt.lsts.accu.PlanStatePanel;
+//import pt.lsts.accu.FinderPanel;
+//import pt.lsts.accu.HeadingTestPanel;
+//import pt.lsts.accu.MapPanel;
+//import pt.lsts.accu.PlanStatePanel;
 import pt.lsts.accu.PreferenceAction;
 import pt.lsts.accu.QuitCommand;
 import pt.lsts.accu.StateViewPanel;
 import pt.lsts.accu.SystemListPanel;
 import pt.lsts.accu.TeleOpPanel;
-import pt.lsts.accu.TestPanel;
-import pt.lsts.accu.TtsTestPanel;
+//import pt.lsts.accu.TestPanel;
+//import pt.lsts.accu.TtsTestPanel;
 import pt.lsts.accu.panel.AccuBaseAction;
 import pt.lsts.accu.panel.AccuPanelContainer;
 import android.content.Context;
@@ -202,15 +202,15 @@ public class ConsoleConfig
         panelList.add(new PanelConfigItem(SystemListPanel.class,true,1));
         panelList.add(new PanelConfigItem(StateViewPanel.class,true,2));
         panelList.add(new PanelConfigItem(EntityListPanel.class,true,3));
-        panelList.add(new PanelConfigItem(PlanStatePanel.class,true,4));
-        panelList.add(new PanelConfigItem(MapPanel.class,true,5));
+        //panelList.add(new PanelConfigItem(PlanStatePanel.class,true,4));
+        //panelList.add(new PanelConfigItem(MapPanel.class,true,5));
         panelList.add(new PanelConfigItem(TeleOpPanel.class,true,6));
-        panelList.add(new PanelConfigItem(FinderPanel.class,true,8));
-        panelList.add(new PanelConfigItem(BeaconCfgPanel.class,true,9));
+       // panelList.add(new PanelConfigItem(FinderPanel.class,true,8));
+        //panelList.add(new PanelConfigItem(BeaconCfgPanel.class,true,9));
         panelList.add(new PanelConfigItem(PreferenceAction.class,true,10));
-        panelList.add(new PanelConfigItem(TestPanel.class,true,11));
-        panelList.add(new PanelConfigItem(TtsTestPanel.class,true,12));
-        panelList.add(new PanelConfigItem(HeadingTestPanel.class,true,13));
+        //panelList.add(new PanelConfigItem(TestPanel.class,true,11));
+        //panelList.add(new PanelConfigItem(TtsTestPanel.class,true,12));
+        //panelList.add(new PanelConfigItem(HeadingTestPanel.class,true,13));
     }
     
 	/**

@@ -43,7 +43,6 @@ public class StateView extends TableLayout implements IMCSubscriber {
 			return;
 
 		if (ID_STATIC == EstimatedState.ID_STATIC) {
-			// Log.i("teste",msg.toString());
 			// Process EstimatedState
 			double res[] = CoordUtil.getAbsoluteLatLonDepthFromMsg(msg);
 

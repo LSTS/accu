@@ -1,36 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" -->
-<!-- android:layout_width="match_parent" -->
-<!-- android:layout_height="match_parent" -->
-<!-- android:orientation="horizontal" > -->
-<!-- <ListView -->
-<!-- android:layout_width="wrap_content" -->
-<!-- android:layout_height="fill_parent" -->
-<!-- android:layout_weight="1.0" -->
-<!-- android:tag="listOn"/> -->
-<!-- <LinearLayout -->
-<!-- android:layout_width="wrap_content" -->
-<!-- android:layout_height="fill_parent" -->
-<!-- android:orientation="vertical"> -->
-<!-- <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:tag="buttonUp" android:text="Up" android:layout_marginTop="5dp"/> -->
-<!-- <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:tag="buttonDown" android:text="Down"/> -->
-<!-- <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:tag="buttonAdd" android:text="Add"/> -->
-<!-- <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:tag="buttonRemovedragitem.xml" android:text="Remove"/> -->
-<!-- </LinearLayout> -->
-<!-- <ListView -->
-<!-- android:layout_width="wrap_content" -->
-<!-- android:layout_height="fill_parent" -->
-<!-- android:layout_weight="1.0" -->
-<!-- android:tag="listOff"/> -->
-<!-- </LinearLayout> -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="left"
     android:orientation="horizontal" >
 
     <com.ericharlow.DragNDrop.DragNDropListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:tag="draglist" >
     </com.ericharlow.DragNDrop.DragNDropListView>
 
@@ -39,5 +17,4 @@
         android:layout_height="wrap_content"
         android:tag="save"
         android:text="@string/console_config_save" />
-
 </LinearLayout>

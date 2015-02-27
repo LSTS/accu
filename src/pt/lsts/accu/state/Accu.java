@@ -121,13 +121,6 @@ public class Accu {
 	return instance;
     }
 
-    // public static void killInstance()
-    // {
-    // instance = null;
-    // mSysList.timer.cancel(); //FIXME For now the timer cancelling goes here..
-    // mAnnouncer.timer.cancel(); //FIXME same as above
-    // }
-
     public Sys getActiveSys() {
 	Log.i(TAG, Accu.class.getSimpleName() + ": getActiveSys");
 	return activeSys;

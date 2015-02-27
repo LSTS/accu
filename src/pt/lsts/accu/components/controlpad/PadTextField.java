@@ -28,14 +28,12 @@ public class PadTextField extends TextView {
 		return message;
 	}
 
-
 	/**
 	 * @return the field
 	 */
 	public String getField() {
 		return field;
 	}
-
 
 	/**
 	 * @return the units

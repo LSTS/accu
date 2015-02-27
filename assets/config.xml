@@ -3,11 +3,11 @@
   <action package="pt.lsts.accu.SystemListPanel" active="true" order="2"></action>
   <action package="pt.lsts.accu.StateViewPanel" active="true" order="1"></action>
   <action package="pt.lsts.accu.EntityListPanel" active="true" order="3"></action>
-  <action package="pt.lsts.accu.PlanStatePanel" active="true" order="4"></action>
-  <action package="pt.lsts.accu.MapPanel" active="true" order="5"></action>
+  <action package="pt.lsts.accu.PlanStatePanel" active="false" order="4"></action>
+  <action package="pt.lsts.accu.MapPanel" active="false" order="5"></action>
   <action package="pt.lsts.accu.TeleOpPanel" active="true" order="6"></action>
   <action package="pt.lsts.accu.FinderPanel" active="false" order="7"></action>
-  <action package="pt.lsts.accu.BeaconCfgPanel" active="true" order="8"></action>
+  <action package="pt.lsts.accu.BeaconCfgPanel" active="false" order="8"></action>
   <action package="pt.lsts.accu.PreferenceAction" active="true" order="9"></action>
   <action package="pt.lsts.accu.console.ConsoleConfigurator" active="true" order="10"></action>
 </actions>

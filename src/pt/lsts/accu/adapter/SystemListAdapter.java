@@ -98,8 +98,6 @@ public class SystemListAdapter extends BaseAdapter {
 		TextView tvInfo = (TextView) view.findViewById(R.id.syslist_info);
 		
 		tvName.setTextSize(20);
-		// Set color to white for disconnected not erroneous not CCU systems (visibility)
-		//tvName.setTextColor((!v.isConnected()&&!v.isError()&&!v.getType().equals("CCU"))? Color.WHITE : Color.BLACK);
 		tvName.setText(v.getName() + " - " + v.getType() + (v==Accu.getInstance().getActiveSys()?" (M)":""));
         if (getItemPressed()==position){
             String text = "Address: " + v.getAddress()+":"+v.getPort();
@@ -120,11 +118,11 @@ public class SystemListAdapter extends BaseAdapter {
         //color codes
         final String ORANGE = "FF8000";//orange
         final String RED = "FF1428";//red
-        final String GREEN = "006400";//green
+        //final String GREEN = "006400";//green
         final String BLUE = "2BB6E3";//cyan
-        final String BLUE_LIGHTER = "B5C6D8";//very light blue
+        //final String BLUE_LIGHTER = "B5C6D8";//very light blue
         final String BLUE_DARKER = "15596F";//dark blue
-        final String OLD = "253F3F";//gray
+        //final String OLD = "253F3F";//gray
         final String IDLE = "6E6E6E";//brighter gray
         final String BLACK = "#000000";//black
         final String WHITE = "#FFFFFF";//white
@@ -183,7 +181,7 @@ public class SystemListAdapter extends BaseAdapter {
 		int r = Integer.parseInt(hex.substring(0, 2),16);
 		int g = Integer.parseInt(hex.substring(2, 4),16);
 		int b = Integer.parseInt(hex.substring(4, 6),16);
-//		System.out.println(r + " " + g + " " + b);
+		
 		return createMatrix(r,g,b);
 	}
 

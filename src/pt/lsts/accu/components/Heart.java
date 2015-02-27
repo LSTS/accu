@@ -56,7 +56,6 @@ public class Heart implements SystemListChangeListener
 		vehicleList.clear();
 		for(Sys s: list)
 		{
-//			if(!s.getType().equalsIgnoreCase("CCU"))
 				vehicleList.add(s);
 		}
 	}
