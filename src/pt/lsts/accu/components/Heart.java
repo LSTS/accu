@@ -1,7 +1,6 @@
 package pt.lsts.accu.components;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import pt.lsts.accu.msg.IMCManager;
 import pt.lsts.accu.state.Accu;
@@ -11,9 +10,11 @@ import pt.lsts.accu.types.Sys;
 import pt.lsts.accu.util.AccuTimer;
 import android.util.Log;
 
+import pt.lsts.imc.Heartbeat;
+
 public class Heart implements SystemListChangeListener 
 {
-	public static final boolean DEBUG = false;
+	public static final boolean DEBUG = true;
 	public static final String TAG = "Heart";
 	AccuTimer timer;
 	ArrayList<Sys> vehicleList = new ArrayList<Sys>();
@@ -43,13 +44,19 @@ public class Heart implements SystemListChangeListener
 	}
 	public void sendHeartbeat()
 	{
-        Iterator<Sys> iterator = vehicleList.iterator();
-		while(iterator.hasNext())
-		{
-			if(DEBUG)
-                Log.v(TAG,"Beating...");
-			imm.sendToSys(iterator.next(), "HeartBeat");
-		}
+		 ArrayList<Sys> arrayListSys = sysList.getList();
+		 for (Sys sys : arrayListSys) {
+			 if (DEBUG)
+				 Log.v(TAG, "Beating... to sys:"+sys.getName());
+			 try {
+				 //imm.sendToSys(sys, "HeartBeat");//accu old version
+				 Heartbeat heartbeat = new Heartbeat();
+				 Accu.getInstance().getIMCManager().sendToSys(sys, heartbeat);
+			 }catch(Exception e){
+				 Log.e(TAG,"sendHeartBeat exception: "+e.getMessage(),e);
+				 e.printStackTrace();
+			 }
+		 }
 	}
 	public void updateVehicleList(ArrayList<Sys> list)
 	{

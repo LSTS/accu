@@ -217,6 +217,8 @@ public class IMCManager implements MessageListener<MessageInfo, IMCMessage>
 	}
 	public void sendToActiveSys(IMCMessage msg)
 	{
+		if (msg==null)
+			Log.e(TAG,"sendToActiveSys msg==null");
 		sendToSys(Accu.getInstance().getActiveSys(), msg);
 	}
 	public void sendToSys(Sys sys, String name, Object ... values)
@@ -225,6 +227,7 @@ public class IMCManager implements MessageListener<MessageInfo, IMCMessage>
 			send(sys.getAddress(),sys.getPort(),
 					name, values);
 		} catch (Exception e) {
+			Log.e(TAG,"sendToSys erro:"+e.getMessage(),e);
 			e.printStackTrace();
 		}
 	}
@@ -234,6 +237,7 @@ public class IMCManager implements MessageListener<MessageInfo, IMCMessage>
 			send(sys.getAddress(),sys.getPort(),
 					msg);
 		} catch (Exception e) {
+			Log.e(TAG,"sendToSys erro:"+e.getMessage(),e);
 			e.printStackTrace();
 		}
 	}
@@ -242,8 +246,13 @@ public class IMCManager implements MessageListener<MessageInfo, IMCMessage>
 	{
 		try {
 			IMCMessage msg = IMCDefinition.getInstance().create(name, values);
+			if (msg==null) {
+				 Log.e(TAG, "send msg==null");
+				 return;//msg==null don't send it
+				 }
 			send(address, port, msg);
 		} catch (Exception e) {
+			Log.e(TAG,"send erro:"+e.getMessage(),e);
 			e.printStackTrace();
 		}
 	}
@@ -254,7 +263,9 @@ public class IMCManager implements MessageListener<MessageInfo, IMCMessage>
 	{
 		try {
 			//FIXME Fill the header of the messages here
-			fillHeader(msg);
+			if (msg==null)
+				 Log.e(TAG,"sendFinal msg==null");
+				 fillHeader(msg);
 			comm.sendMessage(address,port,msg);
 		} catch (Exception e) {
 			e.printStackTrace();
