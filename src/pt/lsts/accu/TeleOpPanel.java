@@ -3,6 +3,18 @@ package pt.lsts.accu;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.hardware.SensorManager;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 import pt.lsts.accu.components.controlpad.ControlPad2;
 import pt.lsts.accu.components.controlpad.PadEvent;
 import pt.lsts.accu.components.controlpad.PadTextField;
@@ -22,22 +34,11 @@ import pt.lsts.accu.util.MUtil;
 import pt.lsts.imc.EstimatedState;
 import pt.lsts.imc.IMCDefinition;
 import pt.lsts.imc.IMCMessage;
+import pt.lsts.imc.PlanControl;
 import pt.lsts.imc.RemoteActionsRequest;
+import pt.lsts.imc.Teleoperation;
 import pt.lsts.imc.TeleoperationDone;
 import pt.lsts.imc.VehicleState;
-import pt.lsts.accu.R;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import android.hardware.SensorManager;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 @AccuAction(name = "Tele-Operation", icon=R.drawable.teleop_icon_1)
 public class TeleOpPanel extends AccuBasePanel 
@@ -151,14 +152,17 @@ implements IMCSubscriber, PadEventListener
 	{	
 		Log.i("Log","Initializing TeleOp...");
 		timer.start();
-		IMCMessage msg;
 		try {
-            IMCMessage teleoperationMsg = IMCDefinition.getInstance().create("Teleoperation");
-            int reqId = Accu.getInstance().getNextRequestId();
-            msg = IMCDefinition.getInstance().create(
-                    "PlanControl", "type", "REQUEST", "op", "START", "request_id",
-                    reqId, "plan_id", "teleoperation-mode", 
-                    "flags", 0, "arg", teleoperationMsg);
+			int reqId = Accu.getInstance().getNextRequestId();
+			Teleoperation teleoperationMsg = new Teleoperation();
+			teleoperationMsg.setCustom("src="+imm.getLocalId());
+			PlanControl msg = new PlanControl();
+			msg.setType(PlanControl.TYPE.REQUEST);
+			msg.setOp(PlanControl.OP.START);
+			msg.setRequestId(reqId);
+            msg.setPlanId("teleoperation-mode");
+            msg.setArg(teleoperationMsg);
+            
             while(teleop==false){
                 imm.sendToActiveSys(msg);
                 wait(700);

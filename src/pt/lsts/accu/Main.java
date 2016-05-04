@@ -2,23 +2,23 @@ package pt.lsts.accu;
 
 import java.io.FileInputStream;
 
-import pt.lsts.accu.console.ConsoleConfig;
-import pt.lsts.accu.panel.AccuPanelContainer;
-import pt.lsts.accu.state.Accu;
-import pt.lsts.accu.util.AccuTimer;
-import pt.lsts.accu.R;
+import com.google.android.maps.MapActivity;
+
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
-import com.google.android.maps.MapActivity;
+import pt.lsts.accu.console.ConsoleConfig;
+import pt.lsts.accu.panel.AccuPanelContainer;
+import pt.lsts.accu.state.Accu;
+import pt.lsts.accu.util.AccuTimer;
 
 /**
  * Main Activity for ACCU application
@@ -58,6 +58,9 @@ public class Main extends MapActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, Main.class.getSimpleName() + ": onCreate");
 
+		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+		StrictMode.setThreadPolicy(policy);
+	     
 		String s = Accu.getInstance().getPrefs().getString("colorMode", "1");
 		if (s.equals("1"))
 			setTheme(android.R.style.Theme_Light_NoTitleBar_Fullscreen);

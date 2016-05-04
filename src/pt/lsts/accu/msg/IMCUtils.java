@@ -37,12 +37,14 @@ public class IMCUtils {
 	{
 		String res[]=null;
 		for (String s : getAnnounceService(msg, "imc+udp")) {
+			System.err.println(s);
 			try {
 				String foo[] = s.split(":");
 				res=new String[2];
 				res[0] = foo[0];
 				res[1] = foo[1].substring(0, foo[1].length() - 1);
 				res[1] = res[1].split("/")[0];//remove services after port
+				
 				if (InetAddress.getByName(s.split(":")[0]).isReachable(50)) {
 					return res;//return first reachable
 				}
@@ -51,6 +53,10 @@ public class IMCUtils {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+				return null;
 			}
 		}		
 		return res;//none reachable, return last one
