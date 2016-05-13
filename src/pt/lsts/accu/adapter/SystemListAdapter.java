@@ -105,9 +105,11 @@ public class SystemListAdapter extends BaseAdapter {
             text += timeSinceLastMessage(System.currentTimeMillis(), v.lastMessageReceived);
             if (v.isConnected()==false)
                 text += "\nConnected: " + v.isConnected();
-            if (v.isError()==true)
-                text += "\nError: " + v.isError();
-
+            if (v.isError())
+                text += "\nErrors: "+v.getErrors();
+            else if (!v.getMode().isEmpty())
+            	text += "\nMode: "+v.getMode();
+            
             tvInfo.setText(text);
         }else{
             tvInfo.setText("");
@@ -116,14 +118,14 @@ public class SystemListAdapter extends BaseAdapter {
 		GradientDrawable shape = (GradientDrawable) container.getBackground();
 
         //color codes
-        final String ORANGE = "FF8000";//orange
-        final String RED = "FF1428";//red
+        final String ORANGE = "998000";//orange
+        final String RED = "991428";//red
         //final String GREEN = "006400";//green
-        final String BLUE = "2BB6E3";//cyan
+        final String BLUE = "0FCCE3";//cyan
         //final String BLUE_LIGHTER = "B5C6D8";//very light blue
-        final String BLUE_DARKER = "15596F";//dark blue
+        final String BLUE_DARKER = "000C6F";//dark blue
         //final String OLD = "253F3F";//gray
-        final String IDLE = "6E6E6E";//brighter gray
+        final String IDLE = "333333";//brighter gray
         final String BLACK = "#000000";//black
         final String WHITE = "#FFFFFF";//white
 

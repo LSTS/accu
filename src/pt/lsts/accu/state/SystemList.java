@@ -58,104 +58,119 @@ public class SystemList implements IMCSubscriber {
 			}
 		}
 	}
+	
+	private void on(Announce announce) {
+		// If System already exists in host list
+		String sysName = announce.getSysName();
+		if (containsSysName(sysName)) {
+			Sys s = findSysByName(sysName);
+
+			if (DEBUG)
+				Log.i("Log", "Repeated announce from: " + sysName);
+
+			if (!s.isConnected()) {
+				findSysByName(sysName).lastMessageReceived = System
+						.currentTimeMillis();
+				findSysByName(sysName).setConnected(true);
+				changeList(sysList);
+				// Send an Heartbeat to resume communications in case of
+				// system prior crash
+				try {
+					Accu.getInstance()
+							.getIMCManager()
+							.send(s.getAddress(),
+									s.getPort(),
+									IMCDefinition.getInstance().create(
+											"Heartbeat"));
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+
+			return;
+		}
+		// If Service IMC+UDP doesnt exist or isnt reachable, return...
+		if (IMCUtils.getAnnounceService(announce, "imc+udp") == null) {
+			Log.e(TAG, sysName
+					+ " node doesn't have IMC protocol or isn't reachable");
+			Log.e(TAG, announce.toString());
+			return;
+		}
+		String[] addrAndPort = IMCUtils.getAnnounceIMCAddressPort(announce);
+		if (addrAndPort == null) {
+			Log.e(TAG, "No Announce Services - " + sysName);
+			return;
+		}
+		// If Not include it
+		Log.i("Log", "Adding new System");
+		Sys s = new Sys(addrAndPort[0], Integer.parseInt(addrAndPort[1]),
+				sysName, announce.getSrc(), announce
+						.getSysType().name(), true, "");
+
+		sysList.add(s);
+
+		// Update the list of available Vehicles
+		changeList(sysList);
+
+		// Send an Heartbeat to register as a node in the vehicle (maybe
+		// EntityList?)
+		try {
+			Heartbeat heartbeat = new Heartbeat();
+			heartbeat.setSrc(0x4100);
+			Accu.getInstance().getIMCManager()
+					.send(s.getAddress(), s.getPort(), heartbeat);
+			Accu.getInstance().getIMCManager().getComm()
+					.sendMessage(s.getAddress(), s.getPort(), heartbeat);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+	}
+	
+	private void on(VehicleState msg) {
+		if (DEBUG)
+			Log.i("Log", "Received VehicleState" + msg.toString());
+		Sys s = findSysById((Integer) msg.getSrc());
+		String errors = msg.getErrorEnts();
+		if (s != null) // Meaning it exists on the list
+		{
+			if (DEBUG)
+				Log.i("Log", "Errors: " + errors);
+			s.setErrors(errors);
+			changeList(sysList); // Update the list
+		}
+		
+		switch (msg.getOpMode()) {
+		case SERVICE:
+			s.setMode("Idle");
+			break;
+		case BOOT:
+			s.setMode("Boot");
+			break;
+		case CALIBRATION:
+			s.setMode("Calibration");
+			break;
+		case EXTERNAL:
+			s.setMode("External");
+			break;
+		case MANEUVER:
+			s.setMode(IMCDefinition.getInstance().getMessageName(msg.getManeuverType()));
+			break;
+		default:
+			s.setMode(msg.getOpModeStr());
+			break;
+		}
+	}
 
 	@Override
 	public void onReceive(IMCMessage msg) {
 		final int ID_MSG = msg.getMgid();
-		// Process Heartbeat
-		// Update lastHeartbeat received on systemList
-		if (ID_MSG == Heartbeat.ID_STATIC) {
-			return;
-		}
 
-		// Process Announce routine
-		if (ID_MSG == Announce.ID_STATIC) {
-			Announce announce = (Announce) msg;
-			// If System already exists in host list
-			String sysName = announce.getSysName();
-			if (containsSysName(sysName)) {
-				Sys s = findSysByName(sysName);
-
-				if (DEBUG)
-					Log.i("Log", "Repeated announce from: " + sysName);
-
-				if (!s.isConnected()) {
-					findSysByName(sysName).lastMessageReceived = System
-							.currentTimeMillis();
-					findSysByName(sysName).setConnected(true);
-					changeList(sysList);
-					// Send an Heartbeat to resume communications in case of
-					// system prior crash
-					try {
-						Accu.getInstance()
-								.getIMCManager()
-								.send(s.getAddress(),
-										s.getPort(),
-										IMCDefinition.getInstance().create(
-												"Heartbeat"));
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
-				}
-
-				return;
-			}
-			// If Service IMC+UDP doesnt exist or isnt reachable, return...
-			if (IMCUtils.getAnnounceService(msg, "imc+udp") == null) {
-				Log.e(TAG, sysName
-						+ " node doesn't have IMC protocol or isn't reachable");
-				Log.e(TAG, msg.toString());
-				return;
-			}
-			String[] addrAndPort = IMCUtils.getAnnounceIMCAddressPort(msg);
-			if (addrAndPort == null) {
-				Log.e(TAG, "No Announce Services - " + sysName);
-				return;
-			}
-			// If Not include it
-			Log.i("Log", "Adding new System");
-			Sys s = new Sys(addrAndPort[0], Integer.parseInt(addrAndPort[1]),
-					sysName, (Integer) msg.getHeaderValue("src"), announce
-							.getSysType().name(), true, false);
-
-			sysList.add(s);
-
-			// Update the list of available Vehicles
-			changeList(sysList);
-
-			// Send an Heartbeat to register as a node in the vehicle (maybe
-			// EntityList?)
-			try {
-				Heartbeat heartbeat = new Heartbeat();
-				heartbeat.setSrc(0x4100);
-				Accu.getInstance().getIMCManager()
-						.send(s.getAddress(), s.getPort(), heartbeat);
-				Accu.getInstance().getIMCManager().getComm()
-						.sendMessage(s.getAddress(), s.getPort(), heartbeat);
-			} catch (Exception e1) {
-				e1.printStackTrace();
-			}
-		}
-		// Process VehicleState to get error count
-		else if (ID_MSG == VehicleState.ID_STATIC) {
-			if (DEBUG)
-				Log.i("Log", "Received VehicleState" + msg.toString());
-			Sys s = findSysById((Integer) msg.getHeaderValue("src"));
-			int errors = msg.getInteger("error_count");
-			if (s != null) // Meaning it exists on the list
-			{
-				if (DEBUG)
-					Log.i("Log", "" + errors);
-				s.setError(errors > 0);
-				changeList(sysList); // Update the list
-			}
-		}
-		// Update last messageReceived
+		if (ID_MSG == Announce.ID_STATIC)
+			on((Announce) msg);			
+		else if (ID_MSG == VehicleState.ID_STATIC)
+			on((VehicleState)msg);
 		else {
-			Sys sys = findSysById((Integer) msg.getHeaderValue("src"));
-
-			// Returning from a ACCU crash this will prevent from listening to
-			// messages with nothing on the list
+			Sys sys = findSysById(msg.getSrc());
 			if (sys == null)
 				return;
 			sys.lastMessageReceived = System.currentTimeMillis();

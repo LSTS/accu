@@ -12,21 +12,24 @@ public class Sys {
 	private double[] NED={0.0,0.0,0.0}; // North East Down in meters
 	private double[] RPY={0.0,0.0,0.0}; // Roll Pitch Yaw in radians
 	
-	private String refMode; // Reference Mode name
-	
 	// This 2 Booleans are used to compute the color of 
 	// each sys in system list and serve as the actual state
 	boolean mConnected;
-	boolean mError;
+	String mErrors = "", mode = "";
 	
 	
 	public boolean isError() {
-		return mError;
+		return !mErrors.isEmpty();
 	}
 
-	public void setError(boolean error) {
-		this.mError = error;
+	public void setErrors(String errors) {
+		this.mErrors = errors;
 	}
+	
+	public String getErrors() {
+		return mErrors;
+	}
+
 
 	public boolean isConnected() {
 		return mConnected;
@@ -94,21 +97,21 @@ public class Sys {
 	public void setRPY(double[] rPY) {
 		RPY = rPY;
 	}
-	public String getRefMode() {
-		return refMode;
+	public String getMode() {
+		return mode;
 	}
 
-	public void setRefMode(String refMode) {
-		this.refMode = refMode;
+	public void setMode(String refMode) {
+		this.mode = refMode;
 	}
-	public Sys(String address, int port, String name, int id, String type, boolean connected, boolean error) {
+	public Sys(String address, int port, String name, int id, String type, boolean connected, String errors) {
 		super();
 		this.mAddress = address;
 		this.mPort = port;
 		this.mName = name;
 		this.mId = id;
 		this.mConnected = connected;
-		this.mError = error;
+		this.mErrors = errors;
 		this.mType = type;
 		lastMessageReceived = System.currentTimeMillis();
 	}

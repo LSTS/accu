@@ -1,6 +1,5 @@
 package pt.lsts.accu;
 
-import java.io.File;
 import java.io.FileInputStream;
 
 import com.google.android.maps.MapActivity;
