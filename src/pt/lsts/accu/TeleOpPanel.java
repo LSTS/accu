@@ -132,7 +132,7 @@ implements IMCSubscriber, PadEventListener
 		//Check if there is an active system
 		if(activeS == null)
 		{
-			Toast.makeText(getContext(), "There is no active system yet! Tele-Operation unavailable", 7000).show();
+			Toast.makeText(getContext(), "There is no active system yet! Tele-Operation unavailable", Toast.LENGTH_LONG).show();
 			
 		}
 		else
@@ -159,6 +159,7 @@ implements IMCSubscriber, PadEventListener
 			PlanControl msg = new PlanControl();
 			msg.setType(PlanControl.TYPE.REQUEST);
 			msg.setOp(PlanControl.OP.START);
+			msg.setFlags(0);
 			msg.setRequestId(reqId);
             msg.setPlanId("teleoperation-mode");
             msg.setArg(teleoperationMsg);
@@ -217,14 +218,7 @@ implements IMCSubscriber, PadEventListener
 		}
 		return actionList;
 	}
-//	private void mapActions()
-//	{
-//		LinkedHashMap<String,String> foo = controlPad.getActions();
-//		for(String s: actions.keySet())
-//		{
-//			actions.put(s,foo.get(s));
-//		}
-//	}
+
 	@Override
 	public void onReceive(IMCMessage msg) 
 	{

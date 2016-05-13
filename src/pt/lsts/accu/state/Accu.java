@@ -109,7 +109,6 @@ public class Accu {
     }
 
     public static Accu getInstance(Context context) {
-	Log.i(TAG, Accu.class.getSimpleName() + ": getInstance(context)");
 	if (instance == null) {
 	    instance = new Accu(context);
 	}
@@ -117,7 +116,6 @@ public class Accu {
     }
 
     public static Accu getInstance() {
-	Log.i(TAG, Accu.class.getSimpleName() + ": getInstance");
 	return instance;
     }
 
@@ -180,7 +178,6 @@ public class Accu {
     }
 
     public SharedPreferences getPrefs() {
-	Log.i(TAG, Accu.class.getSimpleName() + ": getPrefs");
 	return mPrefs;
     }
 
