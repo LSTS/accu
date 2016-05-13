@@ -1,5 +1,6 @@
 package pt.lsts.accu;
 
+import java.io.File;
 import java.io.FileInputStream;
 
 import com.google.android.maps.MapActivity;
@@ -19,6 +20,7 @@ import pt.lsts.accu.console.ConsoleConfig;
 import pt.lsts.accu.panel.AccuPanelContainer;
 import pt.lsts.accu.state.Accu;
 import pt.lsts.accu.util.AccuTimer;
+import pt.lsts.imc.lsf.LsfMessageLogger;
 
 /**
  * Main Activity for ACCU application
@@ -57,7 +59,9 @@ public class Main extends MapActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, Main.class.getSimpleName() + ": onCreate");
-
+		String logDir = getApplicationContext().getExternalFilesDir(null).getAbsolutePath();
+		Log.i("ACCU", "Log dir is "+logDir);
+		LsfMessageLogger.changeLogBaseDir(logDir+"/");
 		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 		StrictMode.setThreadPolicy(policy);
 	     

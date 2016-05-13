@@ -120,28 +120,28 @@ public class Accu {
     }
 
     public Sys getActiveSys() {
-	Log.i(TAG, Accu.class.getSimpleName() + ": getActiveSys");
+	//Log.i(TAG, Accu.class.getSimpleName() + ": getActiveSys");
 	return activeSys;
     }
 
     public void setActiveSys(Sys activeS) {
-	Log.i(TAG, Accu.class.getSimpleName() + ": setActiveSys");
+	//Log.i(TAG, Accu.class.getSimpleName() + ": setActiveSys");
 	activeSys = activeS;
 	notifyMainSysChange();
     }
 
     public IMCManager getIMCManager() {
-	Log.i(TAG, Accu.class.getSimpleName() + ": getIMCManager");
+	//Log.i(TAG, Accu.class.getSimpleName() + ": getIMCManager");
 	return imcManager;
     }
 
     public SystemList getSystemList() {
-	Log.i(TAG, Accu.class.getSimpleName() + ": getSystemList");
+	//Log.i(TAG, Accu.class.getSimpleName() + ": getSystemList");
 	return mSysList;
     }
 
     public GPSManager getGpsManager() {
-	Log.i(TAG, Accu.class.getSimpleName() + ": getGpsManager");
+	//Log.i(TAG, Accu.class.getSimpleName() + ": getGpsManager");
 	return mGpsManager;
     }
 
@@ -150,18 +150,18 @@ public class Accu {
 	}
     
     public LblBeaconList getLblBeaconList() {
-	Log.i(TAG, Accu.class.getSimpleName() + ": getLblBeaconList");
+	//Log.i(TAG, Accu.class.getSimpleName() + ": getLblBeaconList");
 	return mBeaconList;
     }
 
     public CallOut getCallOut() {
-	Log.i(TAG, Accu.class.getSimpleName() + ": getCallOut");
+	//Log.i(TAG, Accu.class.getSimpleName() + ": getCallOut");
 	return callOut;
     }
 
     // Main System listeners list related code
     public void addMainSysChangeListener(MainSysChangeListener listener) {
-	Log.i(TAG, Accu.class.getSimpleName() + ": addMainSysChangeListener");
+	//Log.i(TAG, Accu.class.getSimpleName() + ": addMainSysChangeListener");
 	mMainSysChangeListeners.add(listener);
     }
 

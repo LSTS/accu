@@ -5,17 +5,18 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import pt.lsts.accu.state.Accu;
 import pt.lsts.accu.types.Sys;
 import pt.lsts.accu.util.MUtil;
 import pt.lsts.imc.IMCDefinition;
 import pt.lsts.imc.IMCMessage;
+import pt.lsts.imc.lsf.LsfMessageLogger;
 import pt.lsts.imc.net.UDPTransport;
 import pt.lsts.neptus.messages.listener.MessageInfo;
 import pt.lsts.neptus.messages.listener.MessageListener;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 
 /**
  * Class that aggregates IMC messaging functions and delivers message to the subscribers
@@ -164,6 +165,7 @@ public class IMCManager implements MessageListener<MessageInfo, IMCMessage>
 	};
 	@Override
 	public void onMessage(MessageInfo info, IMCMessage message) {
+		LsfMessageLogger.log(message);
 		handle.sendMessage(Message.obtain(handle, 1, message));
 	}
 	
@@ -254,8 +256,14 @@ public class IMCManager implements MessageListener<MessageInfo, IMCMessage>
 	{
 		try {
 			//FIXME Fill the header of the messages here
-			fillHeader(msg);
-			comm.sendMessage(address,port,msg);
+			if (msg != null)
+			{
+				fillHeader(msg);
+				LsfMessageLogger.log(msg);
+				comm.sendMessage(address,port,msg);
+			}
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

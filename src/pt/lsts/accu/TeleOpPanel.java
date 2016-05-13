@@ -35,10 +35,12 @@ import pt.lsts.imc.EstimatedState;
 import pt.lsts.imc.IMCDefinition;
 import pt.lsts.imc.IMCMessage;
 import pt.lsts.imc.PlanControl;
+import pt.lsts.imc.PlanControl.TYPE;
 import pt.lsts.imc.RemoteActionsRequest;
 import pt.lsts.imc.Teleoperation;
 import pt.lsts.imc.TeleoperationDone;
 import pt.lsts.imc.VehicleState;
+import pt.lsts.imc.VehicleState.OP_MODE;
 
 @AccuAction(name = "Tele-Operation", icon=R.drawable.teleop_icon_1)
 public class TeleOpPanel extends AccuBasePanel 
@@ -178,12 +180,10 @@ implements IMCSubscriber, PadEventListener
 		Log.i("Log","TeleOp onStop ");
 		remoteOn=false;
 		timer.stop();
-		IMCMessage msg;
 		try {
-			msg = new TeleoperationDone();
 			while(teleop==true){
-				imm.send(activeS.getAddress(), activeS.getPort(), msg);
-                wait(700);
+				imm.sendToActiveSys(new TeleoperationDone());				
+				wait(700);
             }
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -219,13 +219,31 @@ implements IMCSubscriber, PadEventListener
 		return actionList;
 	}
 
+	public void on(RemoteActionsRequest msg) {
+		actions = parseActions(msg.getString("actions"));
+
+		for(String k: actions.keySet())
+			Log.i("Log",k+" "+actions.get(k));		
+	}
+	
+	public void on(EstimatedState msg) {
+		double speed = Math.sqrt(Math.pow(msg.getVx(), 2) + Math.pow(msg.getVy(), 2) + Math.pow(msg.getVz(), 2))
+				* CoordUtil.msToKnot;
+		((TextView)getLayout().findViewWithTag("speed")).setText(MUtil.roundn(speed, 2)+" Knot");
+	}
+	
+	public void on(VehicleState msg) {
+		teleop = msg.getOpMode() == OP_MODE.MANEUVER && msg.getManeuverType() == teleopid;
+		((PadToggleButton)getLayout().findViewWithTag("btn1")).setChecked(teleop);
+	}
+	
+	
 	@Override
 	public void onReceive(IMCMessage msg) 
 	{
 		if(IMCUtils.isMsgFromActive(msg))
 		{
 			final int ID_MSG = msg.getMgid();
-			// Fill the PadTextField components on controlpad
 			for(PadTextField ptf : textFields)
 			{
 				if(msg.getAbbrev().equals(ptf.getMessage()))
@@ -234,41 +252,19 @@ implements IMCSubscriber, PadEventListener
 				}
 			}
 			
-			if(ID_MSG == RemoteActionsRequest.ID_STATIC)
-			{
-				actions = parseActions(msg.getString("actions"));
-//				mapActions();
-
-				for(String k: actions.keySet())
-				{
-					Log.i("Log",k+" "+actions.get(k));
-				}
-			}	
-			
-			// For now EstimatedState is hard-coded since it needs some processing
-			if(ID_MSG == EstimatedState.ID_STATIC)
-			{
-				double vx = msg.getDouble("vx");
-				double vy = msg.getDouble("vy");
-				double vz = msg.getDouble("vz");
-				double speed = Math.sqrt(Math.pow(vx, 2)+Math.pow(vy, 2)+Math.pow(vz, 2))*CoordUtil.msToKnot;
-				((TextView)getLayout().findViewWithTag("speed")).setText(MUtil.roundn(speed, 2)+" Knot");
-			}
-			
-			if(ID_MSG == VehicleState.ID_STATIC)
-			{
-				if(msg.getString("op_mode").equalsIgnoreCase("maneuver")
-					&& msg.getInteger("maneuver_type")==teleopid)
-				{
-					teleop=true;
-				}
-				else
-				{
-					teleop=false;
-				}
-//				((TextView)getLayout().findViewWithTag("opmode")).setText("Tele-Operation "+(teleop?"ON":"OFF"));
-				((PadToggleButton)getLayout().findViewWithTag("btn1")).setChecked(teleop);
-			}
+			switch (ID_MSG) {
+			case RemoteActionsRequest.ID_STATIC:
+				on((RemoteActionsRequest)msg);
+				break;
+			case EstimatedState.ID_STATIC:
+				on((EstimatedState)msg);
+				break;
+			case VehicleState.ID_STATIC:
+				on((VehicleState)msg);
+				break;
+			default:
+				break;
+			}			
 		}
 	}
 
