@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ACCU</string>
+    <string name="description">none</string>
+
+    <color name="backgroundcolor">#D7F0F0</color>
+    <color name="beaconDialogTextColor">#000000</color>
+
+    <!-- Command control strings -->
+    <string name="control_accelerate">Accelerate</string>
+    <string name="control_decelerate">Decelerate</string>
+    <string name="control_stop">Stop</string>
+
+    <!-- Test Layout Strings -->
+    <string name="test_remote_on">SetRemoteOn</string>
+    <string name="test_remote_off">SetRemoteOff</string>
+    <string name="test_remote_hatebs">SetRemotewhatebs</string>
+
+    <!-- StateView Layout Strings -->
+    <string name="stateview_lat">Latitude</string>
+    <string name="stateview_long">Longitude</string>
+    <string name="stateview_depth">Depth</string>
+    <string name="stateview_roll">Roll</string>
+    <string name="stateview_pitch">Pitch</string>
+    <string name="stateview_yaw">Yaw</string>
+    <string name="stateview_speed">Speed</string>
+    <string name="stateview_rpm">Rpm</string>
+    <string name="stateview_op_mode">Operation Mode: </string>
+    <string name="stateview_error_count">Error Count: </string>
+    <string name="stateview_last_error">Last Error</string>
+
+    <!-- Planstate layout Strings -->
+    <string name="planstate">Plan State: </string>
+    <string name="planstate_state">state</string>
+    <string name="planstate_plan_id">Plan ID: </string>
+    <string name="planstate_maneuver_id">Maneuver ID: </string>
+    <string name="planstate_last_event">Last Event: </string>
+    <string name="planstate_start">Start</string>
+    <string name="planstate_stop">Stop</string>
+    <string name="planstate_abort">Abort</string>
+
+    <!-- copyofconsole configuratior Strings -->
+    <string name="config_up">Up</string>
+    <string name="config_down">Down</string>
+    <string name="config_add">Add</string>
+    <string name="config_remove">Remove</string>
+
+    <!-- coord dialog Strings -->
+    <string name="coord_dialog_lat">Latitude:</string>
+    <string name="coord_dialog_edit_text">0.0</string>
+    <string name="coord_dialog_long">Longitude:</string>
+    <string name="coord_dialog_ok">OK</string>
+
+    <!-- console config Strings -->
+    <string name="console_config_save">Save</string>
+
+    <!-- command pad sensor Strings -->
+    <string name="command_pad_sensor_acce">Accelerate</string>
+    <string name="command_pad_sensor_dece">Decelerate</string>
+    <string name="command_pad_sensor_stop">Stop</string>
+
+    <!-- beacon list Strings -->
+    <string name="beacon_list_lat">Lat: </string>
+    <string name="beacon_list_lon">Lon: </string>
+    <string name="beacon_list_depth">Depth: </string>
+
+    <!-- beacon dialog Strings -->
+    <string name="beacon_dialog_lat">Lat: </string>
+    <string name="beacon_dialog_lon">Lon: </string>
+    <string name="beacon_dialog_depth">Depth: </string>
+    <string name="beacon_dialog_change_gps_coords">Change GPS Coords</string>
+
+    <!-- beacon config Strings -->
+    <string name="beacon_config_configurator">Beacon Configurator</string>
+    <string name="beacon_config_no_data">No data</string>
+    <string name="beacon_config_send_info">Send Beacon Information</string>
+    <string name="title_activity_load_permission">LoadPermission</string>
+    <string name="accu">ACCU</string>
+    <string name="logo">logo</string>
+
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="StateView_Style" parent="@android:style/TextAppearance">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="textsizebig" parent="@android:style/TextAppearance">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="AccuBaseTheme" parent="@android:style/Theme.Light.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@color/backgroundcolor</item>
+    </style>
+
+    <style name="Theme.MyDialog" parent="android:style/Theme.Dialog">
+        <item name="android:backgroundDimAmount">0</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light" />
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

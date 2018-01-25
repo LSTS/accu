@@ -1,0 +1,123 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .externalToolBuilders/
+* .externalToolBuilders/versioning.launch
+* .gitignore
+* AndroidManifest.xml
+* README.md
+* assets/
+* assets/config.xml
+* assets/plugin.list
+* doc/
+* doc/IMCSubscribing.dia
+* doc/IMCSubscribing.jpg
+* doc/TeleOperation.dia
+* doc/TeleOperation.jpg
+* doc/test_plan.txt
+* lint.xml
+* proguard.cfg
+* res/
+* res/drawable-hdpi/
+* res/drawable-hdpi/androidmarker.png
+* res/drawable-hdpi/compass1.png
+* res/drawable-hdpi/compass2.png
+* res/drawable-hdpi/entitylist_icon_1.png
+* res/drawable-hdpi/exit.png
+* res/drawable-hdpi/finder_icon_1.png
+* res/drawable-hdpi/icon.png
+* res/drawable-hdpi/lbl_icon_1.png
+* res/drawable-hdpi/map_icon_1.png
+* res/drawable-hdpi/marker1.png
+* res/drawable-hdpi/planstate_icon_1.png
+* res/drawable-hdpi/preferences_icon_1.png
+* res/drawable-hdpi/stateview_icon_1.png
+* res/drawable-hdpi/syslist_item_shape.xml
+* res/drawable-hdpi/systemlist_icon_1.png
+* res/drawable-hdpi/teleop_icon_1.png
+* res/drawable-ldpi/
+* res/drawable-ldpi/icon.png
+* res/drawable-mdpi/
+* res/drawable-mdpi/icon.png
+* res/layout/
+* res/layout/about_layout.xml
+* res/layout/beacon_config_layout.xml
+* res/layout/beacon_dialog.xml
+* res/layout/beacon_list_item.xml
+* res/layout/command_pad_double.xml
+* res/layout/command_pad_layout.xml
+* res/layout/command_pad_sensor.xml
+* res/layout/command_pad_sensor_layout.xml
+* res/layout/console_configurator_layout.xml
+* res/layout/container_layout.xml
+* res/layout/coord_dialog_layout.xml
+* res/layout/copyofconsole_configurator_layout.xml
+* res/layout/dragitem.xml
+* res/layout/entitystate_item_layout.xml
+* res/layout/finder_layout.xml
+* res/layout/finder_panel_layout.xml
+* res/layout/heading_test_layout.xml
+* res/layout/main.xml
+* res/layout/main2.xml
+* res/layout/map.xml
+* res/layout/pad_layout_test.xml
+* res/layout/panel_selector_item.xml
+* res/layout/panel_selector_layout.xml
+* res/layout/planstate_layout.xml
+* res/layout/stateview_layout.xml
+* res/layout/stateview_panel_layout.xml
+* res/layout/syslist_item_layout.xml
+* res/layout/systemlist_layout.xml
+* res/layout/teleoperation_layout_1.xml
+* res/layout/teleoperation_layout_2.xml
+* res/layout/teleoperation_sensor_layout.xml
+* res/layout/test_layout.xml
+* res/layout/ttstest_layout.xml
+* res/menu/
+* res/menu/main_menu.xml
+* res/raw/
+* res/raw/config.xml
+* res/values/
+* res/values/arrays.xml
+* res/values/dimensions.xml
+* res/values/strings.xml
+* res/values/styles.xml
+* res/xml/
+* res/xml/preferences.xml
+* updPlugins.sh
+* versioning.sh
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* androidLibs/maps.jar => app/androidLibs/maps.jar
+* libs/android-support-v4.jar => app/libs/android-support-v4.jar
+* libs/dom4j-1.6.1.jar => app/libs/dom4j-1.6.1.jar
+* libs/jaxen-1.1.1.jar => app/libs/jaxen-1.1.1.jar
+* libs/junit-4.10.jar => app/libs/junit-4.10.jar
+* libs/libimc.jar => app/libs/libimc.jar
+* src/ => app/src/main/java/
+* test/ => app/src/main/java/
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)
